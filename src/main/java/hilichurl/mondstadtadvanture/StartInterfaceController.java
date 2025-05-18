@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 public class StartInterfaceController {
     @FXML
     public void onStart(ActionEvent event) {
+
     }
 
     @FXML

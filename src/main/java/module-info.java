@@ -8,4 +8,5 @@ module hilichurl.mondstadtadvanture {
 
     opens hilichurl.mondstadtadvanture to javafx.fxml;
     exports hilichurl.mondstadtadvanture;
+    exports hilichurl.mondstadtadvanture.enums;
 }
