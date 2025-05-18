@@ -9,4 +9,6 @@ module hilichurl.mondstadtadvanture {
     opens hilichurl.mondstadtadvanture to javafx.fxml;
     exports hilichurl.mondstadtadvanture;
     exports hilichurl.mondstadtadvanture.enums;
+    exports hilichurl.mondstadtadvanture.fxmlcontroller;
+    opens hilichurl.mondstadtadvanture.fxmlcontroller to javafx.fxml;
 }

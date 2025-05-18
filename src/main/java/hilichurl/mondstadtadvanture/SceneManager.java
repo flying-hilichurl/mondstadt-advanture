@@ -15,7 +15,7 @@ public class SceneManager {
     private double screenWidth;     //屏幕宽度
     private double screenHeight;    //屏幕高度
     private final HashMap<GameScenes,String> scenePath =new HashMap<>();
-    static SceneManager instance =new SceneManager();
+    public static SceneManager instance =new SceneManager();
 
     //初始化的时候，将GameScenes和地址一一对应
     private SceneManager(){

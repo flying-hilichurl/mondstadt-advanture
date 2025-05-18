@@ -1,0 +1,22 @@
+.map{
+    -fx-background-image: url('../images/mondstadt.png');
+    -fx-background-size:cover;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+}
+
+.header{
+    -fx-background-color: rgba(50,50,200,0.5);
+    -fx-pref-height: 50px;
+}
+
+AnchorPane Button{
+    -fx-pref-width: 250px;
+    -fx-pref-height: 50px;
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-font-size: 25px;
+    -fx-border-width: 1px;
+    -fx-border-color: black;
+    -fx-border-radius: 10px;
+}

@@ -1,12 +1,14 @@
-package hilichurl.mondstadtadvanture;
+package hilichurl.mondstadtadvanture.fxmlcontroller;
 
+import hilichurl.mondstadtadvanture.SceneManager;
+import hilichurl.mondstadtadvanture.enums.GameScenes;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 public class StartInterfaceController {
     @FXML
-    public void onStart(ActionEvent event) {
-
+    public void onStart(ActionEvent event) throws Exception {
+        SceneManager.instance.switchScene(GameScenes.Map);
     }
 
     @FXML

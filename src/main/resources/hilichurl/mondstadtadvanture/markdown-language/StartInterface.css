@@ -2,7 +2,7 @@
     -fx-background-image: url('../images/start-background.png');
     -fx-background-size: cover;
     -fx-background-position: center center;
-    -fx-background-repeat: stretch;
+    -fx-background-repeat: no-repeat;
 }
 
 VBox Button{
