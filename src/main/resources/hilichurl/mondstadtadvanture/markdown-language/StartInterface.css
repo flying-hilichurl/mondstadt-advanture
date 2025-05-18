@@ -1,0 +1,16 @@
+.root {
+    -fx-background-image: url('../images/start-background.png');
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
+}
+
+VBox Button{
+    -fx-pref-width: 250px;
+    -fx-pref-height: 50px;
+    -fx-font-size: 25px;
+    -fx-text-fill: white;
+    -fx-background-image: url('../images/button.png');
+    -fx-background-size: cover;
+    -fx-background-repeat: stretch;
+}
