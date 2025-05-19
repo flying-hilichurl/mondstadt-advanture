@@ -1,0 +1,14 @@
+.topText{
+    -fx-font-size: 20px;
+}
+
+.header{
+    -fx-pref-height: 150px;
+    -fx-padding: 20px 20px 20px 20px;
+    -fx-background-color: rgb(165,105,55);
+}
+
+.optionals{
+    -fx-padding: 20px 20px 20px 20px;
+    -fx-alignment: top-center;
+}
