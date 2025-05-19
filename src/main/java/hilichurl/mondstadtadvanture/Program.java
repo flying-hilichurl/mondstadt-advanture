@@ -7,7 +7,6 @@ public class Program extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         SceneManager.instance.init(stage);
-        stage.show();
     }
 
     public static void main(String[] args) {

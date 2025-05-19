@@ -21,6 +21,11 @@ public class SceneManager {
     private SceneManager(){
         scenePath.put(GameScenes.MainMenu,"markdown-language/StartInterface.fxml");
         scenePath.put(GameScenes.Map,"markdown-language/WorldMap.fxml");
+        scenePath.put(GameScenes.AdventureGuild,"markdown-language/Spot.fxml");
+        scenePath.put(GameScenes.KnightlyOrder,"markdown-language/Spot.fxml");
+        scenePath.put(GameScenes.Square,"markdown-language/Spot.fxml");
+        scenePath.put(GameScenes.AngelBounty,"markdown-language/Spot.fxml");
+        scenePath.put(GameScenes.Cathedral,"markdown-language/Spot.fxml");
     }
 
     //获取窗口

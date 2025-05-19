@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="hilichurl.mondstadtadvanture.fxmlcontroller.WorldMapController"
+            fx:controller="hilichurl.mondstadtadvanture.fxmlcontroller.WorldMap"
             prefHeight="400.0" prefWidth="600.0"
             stylesheets="@WorldMap.css" styleClass="map">
 
@@ -21,11 +18,11 @@
 
     <center>
         <AnchorPane>
-            <Button text="冒险家协会" onAction="#onEnterAdventure" AnchorPane.leftAnchor="120" AnchorPane.topAnchor="550"/>
-            <Button text="喷泉广场" onAction="#onEnterSquare" AnchorPane.leftAnchor="1000" AnchorPane.topAnchor="500"/>
-            <Button text="西风骑士团" onAction="#onEnterKnights" AnchorPane.leftAnchor="220" AnchorPane.topAnchor="200"/>
-            <Button text="天使的馈赠" onAction="#onEnterTavern" AnchorPane.leftAnchor="1160" AnchorPane.topAnchor="350"/>
-            <Button text="西风大教堂" onAction="#onEnterChurch" AnchorPane.leftAnchor="420" AnchorPane.topAnchor="30"/>
+            <Button text="冒险家协会" onAction="#onEnter" AnchorPane.leftAnchor="120" AnchorPane.topAnchor="550"/>
+            <Button text="喷泉广场" onAction="#onEnter" AnchorPane.leftAnchor="1000" AnchorPane.topAnchor="500"/>
+            <Button text="西风骑士团" onAction="#onEnter" AnchorPane.leftAnchor="220" AnchorPane.topAnchor="200"/>
+            <Button text="天使的馈赠" onAction="#onEnter" AnchorPane.leftAnchor="1160" AnchorPane.topAnchor="350"/>
+            <Button text="西风大教堂" onAction="#onEnter" AnchorPane.leftAnchor="420" AnchorPane.topAnchor="30"/>
         </AnchorPane>
     </center>
 </BorderPane>
