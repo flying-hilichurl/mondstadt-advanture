@@ -1,0 +1,14 @@
+{
+  "spots": [
+    {
+      "name": "square",
+      "text": "蒙德城中心的广场，喷涌的泉水映出谈笑的人群。",
+      "background": "images/square.jpg",
+      "optionals": [
+        "[猎鹿人]餐馆",
+        "玛萨乌蒂",
+        "离开"
+      ]
+    }
+  ]
+}

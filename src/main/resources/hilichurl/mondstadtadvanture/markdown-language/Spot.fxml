@@ -8,18 +8,17 @@
 
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="hilichurl.mondstadtadvanture.fxmlcontroller.Spot"
-            prefHeight="400.0" prefWidth="600.0"
+            fx:controller="hilichurl.mondstadtadvanture.fxmlcontroller.SpotController"
             stylesheets="@Spot.css">
     <top>
         <VBox styleClass="header">
-            <Label text="场景" styleClass="topText" fx:id="description"/>
+            <Label id="text" styleClass="topText" fx:id="description"/>
         </VBox>
     </top>
 
     <right>
-        <VBox styleClass="optionals">
-
+        <VBox fx:id="optionals" styleClass="optionals"
+        spacing="30">
         </VBox>
     </right>
 </BorderPane>

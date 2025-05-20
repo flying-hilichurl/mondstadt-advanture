@@ -11,4 +11,14 @@
 .optionals{
     -fx-padding: 20px 20px 20px 20px;
     -fx-alignment: top-center;
+    -fx-pref-width: 300px;
+    -fx-pref-height: 500px;
+}
+
+VBox Button{
+    -fx-pref-width: 250px;
+    -fx-pref-height: 50px;
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    -fx-margin:20px 20px 20px 20px;
 }

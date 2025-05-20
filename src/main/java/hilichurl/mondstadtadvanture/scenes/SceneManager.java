@@ -1,8 +1,10 @@
-package hilichurl.mondstadtadvanture;
+package hilichurl.mondstadtadvanture.scenes;
 
+import hilichurl.mondstadtadvanture.Program;
 import hilichurl.mondstadtadvanture.enums.GameScenes;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -15,7 +17,8 @@ public class SceneManager {
     private double screenWidth;     //屏幕宽度
     private double screenHeight;    //屏幕高度
     private final HashMap<GameScenes,String> scenePath =new HashMap<>();
-    public static SceneManager instance =new SceneManager();
+    private final static SceneManager instance =new SceneManager();
+    static Scene currentScene;
 
     //初始化的时候，将GameScenes和地址一一对应
     private SceneManager(){
@@ -42,8 +45,15 @@ public class SceneManager {
         }
 
         FXMLLoader loader =new FXMLLoader(Program.class.getResource(scenePath.get(gameScene)));
-        Scene scene =new Scene(loader.load(),screenWidth,screenHeight);
+        Parent root = loader.load();
+        Scene scene =new Scene(root);
+        currentScene = scene;
+        root.applyCss();
+        root.layout();
         stage.setScene(scene);
+
+        stage.setMaximized(false);
+        stage.setMaximized(true);
     }
 
     //配置窗口大小
@@ -56,6 +66,9 @@ public class SceneManager {
         stage.setX(0);
         stage.setY(0);
         stage.initStyle(StageStyle.UNDECORATED);
+        stage.setMaximized(true);
         stage.show();
     }
+
+    public static SceneManager getInstance(){return instance;}
 }
