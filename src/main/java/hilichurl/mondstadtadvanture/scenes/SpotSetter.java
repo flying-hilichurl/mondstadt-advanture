@@ -1,7 +1,9 @@
 package hilichurl.mondstadtadvanture.scenes;
 
 import hilichurl.mondstadtadvanture.Program;
+import hilichurl.mondstadtadvanture.enums.Interacter;
 import hilichurl.mondstadtadvanture.json.JsonReader;
+import hilichurl.mondstadtadvanture.json.Option;
 import hilichurl.mondstadtadvanture.json.Spot;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -37,15 +39,29 @@ public class SpotSetter {
 
         //设置背景图片
         String path= Program.class.getResource(targetSpot.getBackground()).toExternalForm();
-        System.out.println(path);
         root.setStyle("-fx-background-image:url('"+path+"');"+"-fx-background-repeat:no-repeat;"+
                 "-fx-background-size: cover;");
 
         //显示选项
         VBox vBox =(VBox) root.lookup("#optionals");
         vBox.getChildren().clear();
-        for(String text:targetSpot.getOptionals()){
-            vBox.getChildren().add(new Button(text));
+        for(Option option:targetSpot.getOptionals()){
+            Button button =new Button(option.getText());
+            vBox.getChildren().add(button);
+
+            if(option.getType()== Interacter.Person){
+                //对话未实现
+            }
+            //绑定切换场景的事件
+            else if(option.getType()==Interacter.Spot){
+                button.setOnAction(event->{
+                    try {
+                        SceneManager.getInstance().switchScene(option.getTarget());
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+            }
         }
 
         //显示文字描述

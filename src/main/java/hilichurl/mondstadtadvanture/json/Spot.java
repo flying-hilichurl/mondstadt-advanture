@@ -6,7 +6,7 @@ public class Spot {
     private String name;
     private String text;
     private String background;  //背景图的路径
-    private List<String> optionals;
+    private List<Option> optionals;
 
     public String getName() {return name;}
     public void setName(String name){this.name=name;}
@@ -17,6 +17,6 @@ public class Spot {
     public String getBackground() {return background;}
     public void setBackground(String background){this.background=background;}
 
-    public List<String> getOptionals() {return optionals;}
-    public void setOptionals(List<String> optionals){this.optionals=optionals;}
+    public List<Option> getOptionals() {return optionals;}
+    public void setOptionals(List<Option> optionals){this.optionals=optionals;}
 }

@@ -8,4 +8,5 @@ public enum GameScenes {
     Cathedral,
     Square,
     AngelBounty
+    ,Chat
 }

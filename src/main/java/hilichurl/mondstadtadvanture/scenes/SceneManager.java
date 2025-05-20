@@ -34,6 +34,7 @@ public class SceneManager {
     //获取窗口
     public void init(Stage stage) throws Exception {
         this.stage=stage;
+
         switchScene(GameScenes.MainMenu);
         configStage(stage);
     }
@@ -48,8 +49,6 @@ public class SceneManager {
         Parent root = loader.load();
         Scene scene =new Scene(root);
         currentScene = scene;
-        root.applyCss();
-        root.layout();
         stage.setScene(scene);
 
         stage.setMaximized(false);
@@ -71,4 +70,5 @@ public class SceneManager {
     }
 
     public static SceneManager getInstance(){return instance;}
+
 }
