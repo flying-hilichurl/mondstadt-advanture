@@ -24,6 +24,7 @@ public class PreLoader{
     private int i=0;
 
     public static PreLoader getInstance(){return instance;}
+    public HashMap<GameScenes, BackgroundImage> getSceneImages(){return sceneImages;}
 
     //初始化hashmap和list
     private PreLoader(){
@@ -43,7 +44,7 @@ public class PreLoader{
         paths.put(GameScenes.AngelBounty,"images/angelBounty.png");
     }
 
-    public void preLoad(){
+    public void preLoad(boolean once){
         //创建继承于Service的匿名类
         Service<Image> imageLoader =new Service<>() {
             @Override
@@ -70,7 +71,12 @@ public class PreLoader{
             sceneImages.put(scenes.get(i),bckImage);
             System.out.println(scenes.get(i)+"加载完成");
             i++;
-            Next();
+            if(!once)
+                Next();
+            else{
+                invoke();
+                i=0;    //虽然i=0可以写在invoke中，当时依据单一职责原则，i不应该写进去
+            }
         });
 
         //开始异步加载
@@ -80,20 +86,25 @@ public class PreLoader{
     //处理下一步决策
     private void Next(){
         //若还有未加载的图片，继续加载
-        if(i<scenes.size()){
-            preLoad();
-        }else {
-            ActionEvent actionEvent = new ActionEvent();
-
-            //依次触发订阅事件
-            for(EventHandler<ActionEvent> handler:handlers)
-                handler.handle(actionEvent);
-            handlers.clear();
+        if(i<scenes.size())
+            preLoad(false);
+        else{
+            invoke();
+            i=0;
         }
     }
 
     //注册事件
     public void setOnLoaded(EventHandler<ActionEvent> value){
         handlers.add(value);
+    }
+
+    //依次触发订阅事件
+    public void invoke(){
+        ActionEvent actionEvent = new ActionEvent();
+
+        for(EventHandler<ActionEvent> handler:handlers)
+            handler.handle(actionEvent);
+        handlers.clear();
     }
 }

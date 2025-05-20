@@ -24,7 +24,7 @@ public class StartInterfaceController {
                 throw new RuntimeException(ex);
             }
         });
-        PreLoader.getInstance().preLoad();
+        PreLoader.getInstance().preLoad(false);
 
         //显示加载界面
         showLoading(event);

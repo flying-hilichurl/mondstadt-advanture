@@ -2,10 +2,13 @@ package hilichurl.mondstadtadvanture.scenes;
 
 import hilichurl.mondstadtadvanture.Program;
 import hilichurl.mondstadtadvanture.enums.GameScenes;
+import hilichurl.mondstadtadvanture.preload.PreLoader;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -14,8 +17,6 @@ import java.util.HashMap;
 
 public class SceneManager {
     private Stage stage;    //游戏窗口
-    private double screenWidth;     //屏幕宽度
-    private double screenHeight;    //屏幕高度
     private final HashMap<GameScenes,String> scenePath =new HashMap<>();
     private final static SceneManager instance =new SceneManager();
     static Scene currentScene;
@@ -46,11 +47,17 @@ public class SceneManager {
         }
 
         FXMLLoader loader =new FXMLLoader(Program.class.getResource(scenePath.get(gameScene)));
-        Parent root = loader.load();
+        Pane root = (Pane)loader.load();
         Scene scene =new Scene(root);
         currentScene = scene;
         stage.setScene(scene);
 
+        //获取加载好的背景图
+        BackgroundImage backImage = PreLoader.getInstance().getSceneImages().get(gameScene);
+        Background background=new Background(backImage);
+        root.setBackground(background);
+
+        //神秘的bug消除方式
         stage.setMaximized(false);
         stage.setMaximized(true);
     }
@@ -58,8 +65,10 @@ public class SceneManager {
     //配置窗口大小
     private void configStage(Stage stage){
         Rectangle2D visualBounds = Screen.getPrimary().getVisualBounds();
-        screenWidth = (int) visualBounds.getWidth();
-        screenHeight = (int) visualBounds.getHeight();
+        //屏幕宽度
+        double screenWidth = (int) visualBounds.getWidth();
+        //屏幕高度
+        double screenHeight = (int) visualBounds.getHeight();
         stage.setWidth(screenWidth);
         stage.setHeight(screenHeight);
         stage.setX(0);
