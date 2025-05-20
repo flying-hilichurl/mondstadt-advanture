@@ -1,12 +1,50 @@
 {
   "spots": [
     {
-      "name": "square",
+      "name": "喷泉广场",
       "text": "蒙德城中心的广场，喷涌的泉水映出谈笑的人群。",
       "background": "images/square.jpg",
       "optionals": [
         "[猎鹿人]餐馆",
         "玛萨乌蒂",
+        "离开"
+      ]
+    },
+    {
+      "name": "西风骑士团",
+      "text": "负责蒙德城治安的西风骑士团驻地。",
+      "background": "images/knightlyOrder.png",
+      "optionals": [
+        "[琴]的办公室",
+        "图书馆",
+        "[阿贝多]的办公室",
+        "离开"
+      ]
+    },
+    {
+      "name": "冒险家协会",
+      "text": "冒险家协会的驻地。这里曾经出过大冒险家，不过现在更多是缺乏冒险精神的家伙",
+      "background": "images/adventureGuide.png",
+      "optionals": [
+        "瑟留斯",
+        "离开"
+      ]
+    },
+    {
+      "name": "西风大教堂",
+      "text": "阳光洒在前来祈礼的人脸上，温暖又祥和",
+      "background": "images/cathedral.png",
+      "optionals": [
+        "芭芭拉",
+        "离开"
+      ]
+    },
+    {
+      "name": "天使的馈赠",
+      "text": "牧歌之城最好的酒馆，背靠晨曦酒庄，凭借优质的酒水使得一众吟游诗人和酒客流连忘返。",
+      "background": "images/angelBounty.png",
+      "optionals": [
+        "迪卢克",
         "离开"
       ]
     }

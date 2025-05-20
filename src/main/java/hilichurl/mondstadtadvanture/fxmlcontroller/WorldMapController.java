@@ -13,19 +13,23 @@ public class WorldMapController {
            switch (source.getText()){
                case "冒险家协会":
                    SceneManager.getInstance().switchScene(GameScenes.AdventureGuild);
+                   SpotSetter.getInstance().setSpot("冒险家协会");
                    break;
                case "西风骑士团":
                    SceneManager.getInstance().switchScene(GameScenes.KnightlyOrder);
+                   SpotSetter.getInstance().setSpot("西风骑士团");
                    break;
                case "喷泉广场":
                    SceneManager.getInstance().switchScene(GameScenes.Square);
-                   SpotSetter.getInstance().setSpot("square");
+                   SpotSetter.getInstance().setSpot("喷泉广场");
                    break;
                case "天使的馈赠":
                    SceneManager.getInstance().switchScene(GameScenes.AngelBounty);
+                   SpotSetter.getInstance().setSpot("天使的馈赠");
                    break;
                case "西风大教堂":
                    SceneManager.getInstance().switchScene(GameScenes.Cathedral);
+                   SpotSetter.getInstance().setSpot("西风大教堂");
                    break;
            }
        }
