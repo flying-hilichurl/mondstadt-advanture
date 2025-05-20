@@ -21,7 +21,7 @@
         <Button text="开始游戏" onAction="#onStart"/>
 
         <!--  继续按钮  -->
-        <Button text="继续游戏" onAction="#onContinous"/>
+        <Button text="继续游戏" onAction="#onContinuous"/>
 
         <!--  设置按钮  -->
         <Button text="设置" onAction="#onSetting"/>

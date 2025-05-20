@@ -1,5 +1,6 @@
 package hilichurl.mondstadtadvanture;
 
+import hilichurl.mondstadtadvanture.preload.PreLoader;
 import hilichurl.mondstadtadvanture.scenes.SceneManager;
 import javafx.application.Application;
 import javafx.stage.Stage;
