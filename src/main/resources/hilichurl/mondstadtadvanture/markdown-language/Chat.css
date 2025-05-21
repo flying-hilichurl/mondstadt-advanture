@@ -1,22 +1,32 @@
 .dialogBox{
-    -fx-pre-height:400px;
+    -fx-pref-height:300px;
+    -fx-padding: 20px 20px 20px 20px;
+    -fx-border-size:1px;
+    -fx-border-color: black;
+    -fx-background-color: rgba(150,0,0,0.3);
+}
+
+.nameField{
+    -fx-pref-height:50px;
+    -fx-pref-width:300px;
+    -fx-border-size:1px;
+    -fx-border-color: black;
 }
 
 .name{
-    -fx-pre-height:75px;
-    -fx-pre-width:300px;
     -fx-font-size:24px;
-    border-size:1px;
-    -fx-margin: 20px 20px 20px 20px;
+    -fx-text-fill: white;
 }
 
 .textField{
-    border-size:1px;
-    -fx-margin: 20px 20px 20px 20px;
+    -fx-border-size:1px;
+    -fx-padding: 20px 20px 20px 20px;
+    -fx-border-color: black;
 }
 
 .text{
     -fx-font-size:20px;
+    -fx-text-fill: white;
 }
 
 

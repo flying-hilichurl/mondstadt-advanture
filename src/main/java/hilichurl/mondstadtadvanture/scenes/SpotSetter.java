@@ -52,7 +52,7 @@ public class SpotSetter {
             if(option.getType()== Interacter.PERSON){
                 button.setOnAction(event->{
                     try {
-                        SceneManager.getInstance().switchScene(GameScenes.CHAT);
+                        SceneManager.getInstance().switchChatScene();
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }

@@ -8,13 +8,13 @@
         {
           "text": "[猎鹿人]餐馆",
           "type": "PERSON",
-          "target": "CHAT",
+          "target": "NONE",
           "plotTable": ""
         },
         {
           "text":"玛萨乌蒂",
           "type": "PERSON",
-          "target": "CHAT",
+          "target": "NONE",
           "plotTable": ""
         },
         {
@@ -64,7 +64,7 @@
         {
           "text":"瑟留斯",
           "type": "PERSON",
-          "target": "CHAT",
+          "target": "NONE",
           "plotTable": ""
         },
         {
@@ -83,7 +83,7 @@
         {
           "text":"芭芭拉",
           "type": "PERSON",
-          "target": "CHAT",
+          "target": "NONE",
           "plotTable": ""
         },
         {
@@ -102,7 +102,7 @@
         {
           "text":"迪卢克",
           "type": "PERSON",
-          "target": "CHAT",
+          "target": "NONE",
           "plotTable": ""
         },
         {
