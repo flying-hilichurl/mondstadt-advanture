@@ -1,0 +1,22 @@
+.dialogBox{
+    -fx-pre-height:400px;
+}
+
+.name{
+    -fx-pre-height:75px;
+    -fx-pre-width:300px;
+    -fx-font-size:24px;
+    border-size:1px;
+    -fx-margin: 20px 20px 20px 20px;
+}
+
+.textField{
+    border-size:1px;
+    -fx-margin: 20px 20px 20px 20px;
+}
+
+.text{
+    -fx-font-size:20px;
+}
+
+

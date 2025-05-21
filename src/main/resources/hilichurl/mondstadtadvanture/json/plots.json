@@ -1,0 +1,44 @@
+{
+  "plot1": {
+    "dialogue": [
+      {
+        "name": "旁白",
+        "position": "CENTER",
+        "text": "你是一名游历四方的旅行者，因为过往的功绩，被授予蒙德城的荣誉骑士。"
+      },
+      {
+        "name": "旁白",
+        "position": "CENTER",
+        "text": "现在是蒙德的重要节日--风花节，你回到此地享受节日，顺便见见老朋友们。"
+      }
+    ],
+    "endWay": "END",
+    "branches": [],
+    "next": "spot2",
+    "group": ""
+  },
+  "plot2": {
+    "dialogue": [
+      {
+        "name": "派蒙",
+        "position": "RIGHT",
+        "text": "哇，城里果然布置起来了，嘿嘿，真好看。"
+      },
+      {
+        "name": "派蒙",
+        "position": "RIGHT",
+        "text": "一到风花节蒙德就没什么委托可接，这下没有收入了……不过不管怎么说平时都深受凯瑟琳关照，要不要去向她问个好？"
+      },
+      {
+        "name": "旅行者",
+        "position": "RIGHT",
+        "text": "好啊，走吧。"
+      }
+    ],
+    "endWay": "END",
+    "branches":[],
+    "next": "spot3",
+    "group": ""
+  }
+
+}

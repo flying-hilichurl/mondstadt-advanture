@@ -1,4 +1,4 @@
-package hilichurl.mondstadtadvanture.json;
+package hilichurl.mondstadtadvanture.jsonpojo.spots;
 
 import hilichurl.mondstadtadvanture.enums.GameScenes;
 import hilichurl.mondstadtadvanture.enums.Interacter;

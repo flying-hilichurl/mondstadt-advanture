@@ -28,20 +28,20 @@ public class PreLoader{
 
     //初始化hashmap和list
     private PreLoader(){
-        scenes.add(GameScenes.MainMenu);
-        paths.put(GameScenes.MainMenu,"images/start-background.png");
-        scenes.add(GameScenes.Map);
-        paths.put(GameScenes.Map,"images/mondstadt.png");
-        scenes.add(GameScenes.Cathedral);
-        paths.put(GameScenes.Cathedral,"images/cathedral.png");
-        scenes.add(GameScenes.KnightlyOrder);
-        paths.put(GameScenes.KnightlyOrder,"images/knightlyOrder.png");
-        scenes.add(GameScenes.AdventureGuild);
-        paths.put(GameScenes.AdventureGuild,"images/adventureGuide.png");
-        scenes.add(GameScenes.Square);
-        paths.put(GameScenes.Square,"images/square.jpg");
-        scenes.add(GameScenes.AngelBounty);
-        paths.put(GameScenes.AngelBounty,"images/angelBounty.png");
+        scenes.add(GameScenes.MAIN_MENU);
+        paths.put(GameScenes.MAIN_MENU,"images/start-background.png");
+        scenes.add(GameScenes.MAP);
+        paths.put(GameScenes.MAP,"images/mondstadt.png");
+        scenes.add(GameScenes.CATHEDRAL);
+        paths.put(GameScenes.CATHEDRAL,"images/cathedral.png");
+        scenes.add(GameScenes.KNIGHTLY_ORDER);
+        paths.put(GameScenes.KNIGHTLY_ORDER,"images/knightlyOrder.png");
+        scenes.add(GameScenes.ADVENTURE_GUIDE);
+        paths.put(GameScenes.ADVENTURE_GUIDE,"images/adventureGuide.png");
+        scenes.add(GameScenes.SQUARE);
+        paths.put(GameScenes.SQUARE,"images/square.jpg");
+        scenes.add(GameScenes.ANGEL_BOUNTY);
+        paths.put(GameScenes.ANGEL_BOUNTY,"images/angelBounty.png");
     }
 
     public void preLoad(boolean once){

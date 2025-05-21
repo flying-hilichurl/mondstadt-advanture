@@ -7,20 +7,20 @@
       "optionals": [
         {
           "text": "[猎鹿人]餐馆",
-          "type": "Person",
-          "target": "Chat",
+          "type": "PERSON",
+          "target": "CHAT",
           "plotTable": ""
         },
         {
           "text":"玛萨乌蒂",
-          "type": "Person",
-          "target": "Chat",
+          "type": "PERSON",
+          "target": "CHAT",
           "plotTable": ""
         },
         {
           "text":"离开",
-          "type": "Spot",
-          "target": "Map",
+          "type": "SPOT",
+          "target": "MAP",
           "plotTable": ""
         }
       ]
@@ -32,26 +32,26 @@
       "optionals": [
         {
           "text":"[琴]的办公室",
-          "type": "Spot",
-          "target": "Map",
+          "type": "SPOT",
+          "target": "MAP",
           "plotTable": ""
         },
         {
           "text":"图书馆",
-          "type": "Spot",
-          "target": "Map",
+          "type": "SPOT",
+          "target": "MAP",
           "plotTable": ""
         },
         {
           "text":"[阿贝多]的办公室",
-          "type": "Spot",
-          "target": "Map",
+          "type": "SPOT",
+          "target": "MAP",
           "plotTable": ""
         },
         {
           "text":"离开",
-          "type": "Spot",
-          "target": "Map",
+          "type": "SPOT",
+          "target": "MAP",
           "plotTable": ""
         }
       ]
@@ -63,14 +63,14 @@
       "optionals": [
         {
           "text":"瑟留斯",
-          "type": "Person",
-          "target": "Chat",
+          "type": "PERSON",
+          "target": "CHAT",
           "plotTable": ""
         },
         {
           "text":"离开",
-          "type": "Spot",
-          "target": "Map",
+          "type": "SPOT",
+          "target": "MAP",
           "plotTable": ""
         }
       ]
@@ -82,14 +82,14 @@
       "optionals": [
         {
           "text":"芭芭拉",
-          "type": "Person",
-          "target": "Chat",
+          "type": "PERSON",
+          "target": "CHAT",
           "plotTable": ""
         },
         {
           "text":"离开",
-          "type": "Spot",
-          "target": "Map",
+          "type": "SPOT",
+          "target": "MAP",
           "plotTable": ""
         }
       ]
@@ -101,14 +101,14 @@
       "optionals": [
         {
           "text":"迪卢克",
-          "type": "Person",
-          "target": "Chat",
+          "type": "PERSON",
+          "target": "CHAT",
           "plotTable": ""
         },
         {
           "text":"离开",
-          "type": "Spot",
-          "target": "Map",
+          "type": "SPOT",
+          "target": "MAP",
           "plotTable": ""
         }
       ]
