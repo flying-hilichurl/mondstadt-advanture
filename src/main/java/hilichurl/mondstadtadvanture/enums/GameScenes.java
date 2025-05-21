@@ -1,13 +1,12 @@
 package hilichurl.mondstadtadvanture.enums;
 
 public enum GameScenes {
-    Loading,
-    MainMenu,
-    Map,
-    AdventureGuild,
-    KnightlyOrder,
-    Cathedral,
-    Square,
-    AngelBounty
-    ,Chat
+    MAIN_MENU,
+    MAP,
+    ADVENTURE_GUIDE,
+    KNIGHTLY_ORDER,
+    CATHEDRAL,
+    SQUARE,
+    ANGEL_BOUNTY,
+    CHAT
 }

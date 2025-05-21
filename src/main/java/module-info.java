@@ -15,8 +15,12 @@ module hilichurl.mondstadtadvanture {
     opens hilichurl.mondstadtadvanture.fxmlcontroller to javafx.fxml;
     exports hilichurl.mondstadtadvanture.scenes;
     opens hilichurl.mondstadtadvanture.scenes to javafx.fxml;
-    exports hilichurl.mondstadtadvanture.json;
-    opens hilichurl.mondstadtadvanture.json to javafx.fxml;
+    exports hilichurl.mondstadtadvanture.jsonpojo;
+    opens hilichurl.mondstadtadvanture.jsonpojo to javafx.fxml;
     exports hilichurl.mondstadtadvanture.preload;
     opens hilichurl.mondstadtadvanture.preload to javafx.fxml;
+    exports hilichurl.mondstadtadvanture.jsonpojo.plots;
+    opens hilichurl.mondstadtadvanture.jsonpojo.plots to javafx.fxml;
+    exports hilichurl.mondstadtadvanture.jsonpojo.spots;
+    opens hilichurl.mondstadtadvanture.jsonpojo.spots to javafx.fxml;
 }

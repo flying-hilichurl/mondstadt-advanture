@@ -12,23 +12,23 @@ public class WorldMapController {
            Button source = (Button) event.getSource();
            switch (source.getText()){
                case "冒险家协会":
-                   SceneManager.getInstance().switchScene(GameScenes.AdventureGuild);
+                   SceneManager.getInstance().switchScene(GameScenes.ADVENTURE_GUIDE);
                    SpotSetter.getInstance().setSpot("冒险家协会");
                    break;
                case "西风骑士团":
-                   SceneManager.getInstance().switchScene(GameScenes.KnightlyOrder);
+                   SceneManager.getInstance().switchScene(GameScenes.KNIGHTLY_ORDER);
                    SpotSetter.getInstance().setSpot("西风骑士团");
                    break;
                case "喷泉广场":
-                   SceneManager.getInstance().switchScene(GameScenes.Square);
+                   SceneManager.getInstance().switchScene(GameScenes.SQUARE);
                    SpotSetter.getInstance().setSpot("喷泉广场");
                    break;
                case "天使的馈赠":
-                   SceneManager.getInstance().switchScene(GameScenes.AngelBounty);
+                   SceneManager.getInstance().switchScene(GameScenes.ANGEL_BOUNTY);
                    SpotSetter.getInstance().setSpot("天使的馈赠");
                    break;
                case "西风大教堂":
-                   SceneManager.getInstance().switchScene(GameScenes.Cathedral);
+                   SceneManager.getInstance().switchScene(GameScenes.CATHEDRAL);
                    SpotSetter.getInstance().setSpot("西风大教堂");
                    break;
            }

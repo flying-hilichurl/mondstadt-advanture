@@ -1,4 +1,4 @@
-package hilichurl.mondstadtadvanture.json;
+package hilichurl.mondstadtadvanture.jsonpojo.spots;
 
 import java.util.List;
 

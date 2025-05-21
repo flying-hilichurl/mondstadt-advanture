@@ -22,20 +22,20 @@ public class SceneManager {
 
     //初始化的时候，将GameScenes和地址一一对应
     private SceneManager(){
-        scenePath.put(GameScenes.MainMenu,"markdown-language/StartInterface.fxml");
-        scenePath.put(GameScenes.Map,"markdown-language/WorldMap.fxml");
-        scenePath.put(GameScenes.AdventureGuild,"markdown-language/Spot.fxml");
-        scenePath.put(GameScenes.KnightlyOrder,"markdown-language/Spot.fxml");
-        scenePath.put(GameScenes.Square,"markdown-language/Spot.fxml");
-        scenePath.put(GameScenes.AngelBounty,"markdown-language/Spot.fxml");
-        scenePath.put(GameScenes.Cathedral,"markdown-language/Spot.fxml");
+        scenePath.put(GameScenes.MAIN_MENU,"markdown-language/StartInterface.fxml");
+        scenePath.put(GameScenes.MAP,"markdown-language/WorldMap.fxml");
+        scenePath.put(GameScenes.ADVENTURE_GUIDE,"markdown-language/Spot.fxml");
+        scenePath.put(GameScenes.KNIGHTLY_ORDER,"markdown-language/Spot.fxml");
+        scenePath.put(GameScenes.SQUARE,"markdown-language/Spot.fxml");
+        scenePath.put(GameScenes.ANGEL_BOUNTY,"markdown-language/Spot.fxml");
+        scenePath.put(GameScenes.CATHEDRAL,"markdown-language/Spot.fxml");
     }
 
     //获取窗口
     public void init(Stage stage) throws Exception {
         this.stage=stage;
 
-        switchScene(GameScenes.MainMenu);
+        switchScene(GameScenes.MAIN_MENU);
         configStage(stage);
     }
 

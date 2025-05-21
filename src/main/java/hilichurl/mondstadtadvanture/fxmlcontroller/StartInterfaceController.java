@@ -19,7 +19,7 @@ public class StartInterfaceController {
         //加载图片资源
         PreLoader.getInstance().setOnLoaded(e-> {
             try {
-                SceneManager.getInstance().switchScene(GameScenes.Map);
+                SceneManager.getInstance().switchScene(GameScenes.MAP);
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }

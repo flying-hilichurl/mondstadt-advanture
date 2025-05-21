@@ -2,9 +2,9 @@ package hilichurl.mondstadtadvanture.scenes;
 
 import hilichurl.mondstadtadvanture.Program;
 import hilichurl.mondstadtadvanture.enums.Interacter;
-import hilichurl.mondstadtadvanture.json.JsonReader;
-import hilichurl.mondstadtadvanture.json.Option;
-import hilichurl.mondstadtadvanture.json.Spot;
+import hilichurl.mondstadtadvanture.jsonpojo.JsonReader;
+import hilichurl.mondstadtadvanture.jsonpojo.spots.Option;
+import hilichurl.mondstadtadvanture.jsonpojo.spots.Spot;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -15,7 +15,6 @@ import java.util.Objects;
 
 public class SpotSetter {
     private final static SpotSetter instance = new SpotSetter();
-    private final JsonReader reader = new JsonReader();
 
     private SpotSetter(){}
 
@@ -26,7 +25,7 @@ public class SpotSetter {
 
         //查找spot
         Spot targetSpot=null;
-        for(Spot spot : reader.getSpots().getSpots()){
+        for(Spot spot : JsonReader.getInstance().getSpots().getSpots()){
             if(Objects.equals(spot.getName(), name))
                 targetSpot = spot;
         }
@@ -49,11 +48,11 @@ public class SpotSetter {
             Button button =new Button(option.getText());
             vBox.getChildren().add(button);
 
-            if(option.getType()== Interacter.Person){
+            if(option.getType()== Interacter.PERSON){
                 //对话未实现
             }
             //绑定切换场景的事件
-            else if(option.getType()==Interacter.Spot){
+            else if(option.getType()==Interacter.SPOT){
                 button.setOnAction(event->{
                     try {
                         SceneManager.getInstance().switchScene(option.getTarget());
