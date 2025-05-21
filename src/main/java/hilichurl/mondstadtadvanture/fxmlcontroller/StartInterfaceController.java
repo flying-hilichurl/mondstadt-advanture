@@ -1,5 +1,6 @@
 package hilichurl.mondstadtadvanture.fxmlcontroller;
 
+import hilichurl.mondstadtadvanture.PlotManager;
 import hilichurl.mondstadtadvanture.preload.PreLoader;
 import hilichurl.mondstadtadvanture.scenes.SceneManager;
 import hilichurl.mondstadtadvanture.enums.GameScenes;
@@ -20,6 +21,8 @@ public class StartInterfaceController {
         PreLoader.getInstance().setOnLoaded(e-> {
             try {
                 SceneManager.getInstance().switchScene(GameScenes.MAP);
+                PlotManager.getInstance().startPlot();
+                PlotManager.getInstance().play();
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }

@@ -2,6 +2,7 @@ package hilichurl.mondstadtadvanture;
 
 import hilichurl.mondstadtadvanture.jsonpojo.JsonReader;
 import hilichurl.mondstadtadvanture.jsonpojo.plots.Plot;
+import hilichurl.mondstadtadvanture.scenes.SceneManager;
 
 import java.io.IOException;
 
@@ -18,8 +19,9 @@ public class PlotManager {
         currentPlot = "plot1";
     }
 
-    public void play() throws IOException {
+    public void play() throws Exception {
         Plot plot = JsonReader.getInstance().readPlots(currentPlot);
-        plot.getDialogue().forEach(dialogue->System.out.println(dialogue.getName()+":"+dialogue.getText()));
+        SceneManager.getInstance().switchChatScene(plot);
+
     }
 }

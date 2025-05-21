@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 public class Program extends Application {
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         PreLoader.getInstance().setOnLoaded(e-> {
             try {
                 SceneManager.getInstance().init(stage);

@@ -10,14 +10,19 @@
             xmlns:fx="http://javafx.com/fxml"
             stylesheets="@Chat.css"
             prefHeight="400.0" prefWidth="600.0">
+    <center>
+        <VBox fx:id="narrationField" styleClass="narrationField">
+            <Label fx:id="narration" styleClass="narration"/>
+        </VBox>
+    </center>
+
     <bottom>
-        <VBox styleClass="dialogBox"
-        spacing="20">
+        <VBox fx:id="dialogBox" styleClass="dialogBox" spacing="20">
             <VBox styleClass="nameField">
-                <Label text="名字" styleClass="name"/>
+                <Label fx:id="name" text="名字" styleClass="name"/>
             </VBox>
             <Pane styleClass="textField">
-                <Label text="话" styleClass="text"/>
+                <Label fx:id="text" text="话" styleClass="text"/>
             </Pane>
         </VBox>
     </bottom>

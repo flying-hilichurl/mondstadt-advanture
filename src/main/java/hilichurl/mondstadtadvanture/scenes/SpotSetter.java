@@ -51,11 +51,7 @@ public class SpotSetter {
 
             if(option.getType()== Interacter.PERSON){
                 button.setOnAction(event->{
-                    try {
-                        SceneManager.getInstance().switchChatScene();
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
-                    }
+                    //
                 });
             }
             //绑定切换场景的事件

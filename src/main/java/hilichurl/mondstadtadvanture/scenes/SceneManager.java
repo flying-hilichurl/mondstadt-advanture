@@ -2,6 +2,8 @@ package hilichurl.mondstadtadvanture.scenes;
 
 import hilichurl.mondstadtadvanture.Program;
 import hilichurl.mondstadtadvanture.enums.GameScenes;
+import hilichurl.mondstadtadvanture.jsonpojo.plots.Dialogue;
+import hilichurl.mondstadtadvanture.jsonpojo.plots.Plot;
 import hilichurl.mondstadtadvanture.preload.PreLoader;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -9,11 +11,15 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.scene.control.Label;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class SceneManager {
     private Stage stage;    //游戏窗口
@@ -21,6 +27,7 @@ public class SceneManager {
     private final static SceneManager instance =new SceneManager();
     static Scene currentScene;
     static GameScenes currentGameScene;
+    int i=1;    //文本点击次数
 
     //初始化的时候，将GameScenes和地址一一对应
     private SceneManager(){
@@ -64,7 +71,8 @@ public class SceneManager {
         stage.setMaximized(true);
     }
 
-    public void switchChatScene() throws Exception {
+    //显示对话场景
+    public void switchChatScene(Plot plot) throws Exception {
         if(stage==null){
             throw new Exception("无法获取到Stage窗口");
         }
@@ -73,6 +81,25 @@ public class SceneManager {
         Pane root = (Pane)loader.load();
         Scene scene =new Scene(root);
         stage.setScene(scene);
+
+        //显示剧情文件中的文本信息
+        ArrayList<Dialogue> dialogues = plot.getDialogue();
+        Label name =(Label)root.lookup("#name");
+        Label text =(Label)root.lookup("#text");
+        Label narration =(Label)root.lookup("#narration");
+        VBox center= (VBox)root.lookup("#narrationField");
+        VBox bottom =(VBox)root.lookup("#dialogBox");
+        showDialogue(dialogues.getFirst(),center,bottom,name,text,narration);
+        i=1;
+        scene.setOnMouseClicked(e->{
+            if(i<dialogues.size()){
+                showDialogue(dialogues.get(i),center,bottom,name,text,narration);
+                i++;
+            }
+            else{
+                endChatScene();
+            }
+        });
 
         //获取加载好的背景图
         BackgroundImage backImage = PreLoader.getInstance().getSceneImages().get(currentGameScene);
@@ -104,6 +131,21 @@ public class SceneManager {
         stage.show();
     }
 
-    public static SceneManager getInstance(){return instance;}
+    private void showDialogue(Dialogue dialogue,VBox center,VBox bottom,Label name,Label text,Label narration){
+        if(Objects.equals(dialogue.getName(), "旁白")){
+            bottom.setVisible(false);
+            bottom.setManaged(false);
+            center.setVisible(true);
+            narration.setText(dialogue.getText());
+        }
+        else{
+            center.setVisible(false);
+            bottom.setVisible(true);
+            bottom.setManaged(true);
+            name.setText(dialogue.getName());
+            text.setText(dialogue.getText());
+        }
+    }
 
+    public static SceneManager getInstance(){return instance;}
 }
