@@ -1,6 +1,7 @@
 package hilichurl.mondstadtadvanture.scenes;
 
 import hilichurl.mondstadtadvanture.Program;
+import hilichurl.mondstadtadvanture.enums.GameScenes;
 import hilichurl.mondstadtadvanture.enums.Interacter;
 import hilichurl.mondstadtadvanture.jsonpojo.JsonReader;
 import hilichurl.mondstadtadvanture.jsonpojo.spots.Option;
@@ -49,7 +50,13 @@ public class SpotSetter {
             vBox.getChildren().add(button);
 
             if(option.getType()== Interacter.PERSON){
-                //对话未实现
+                button.setOnAction(event->{
+                    try {
+                        SceneManager.getInstance().switchScene(GameScenes.CHAT);
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                });
             }
             //绑定切换场景的事件
             else if(option.getType()==Interacter.SPOT){

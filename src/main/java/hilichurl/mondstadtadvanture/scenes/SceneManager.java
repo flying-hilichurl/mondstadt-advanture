@@ -29,6 +29,7 @@ public class SceneManager {
         scenePath.put(GameScenes.SQUARE,"markdown-language/Spot.fxml");
         scenePath.put(GameScenes.ANGEL_BOUNTY,"markdown-language/Spot.fxml");
         scenePath.put(GameScenes.CATHEDRAL,"markdown-language/Spot.fxml");
+        scenePath.put(GameScenes.CHAT,"markdown-language/Chat.fxml");
     }
 
     //获取窗口
