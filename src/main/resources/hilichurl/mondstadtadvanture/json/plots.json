@@ -2,43 +2,163 @@
   "plot1": {
     "dialogue": [
       {
-        "name": "旁白",
+        "id": 0,
+        "type": "NARRATION",
+        "name": "",
         "position": "CENTER",
-        "text": "你是一名游历四方的旅行者，因为过往的功绩，被授予蒙德城的荣誉骑士。"
+        "text": "你是一名游历四方的旅行者，因为过往的功绩，被授予蒙德城的荣誉骑士。",
+        "next": 1
       },
       {
-        "name": "旁白",
+        "id": 1,
+        "type": "NARRATION",
+        "name": "",
         "position": "CENTER",
-        "text": "现在是蒙德的重要节日--风花节，你回到此地享受节日，顺便见见老朋友们。"
+        "text": "现在是蒙德的重要节日--风花节，你回到此地享受节日，顺便见见老朋友们。",
+        "next": 2
+      },
+      {
+        "id": 2,
+        "type": "DIALOGUE",
+        "name": "派蒙",
+        "position": "RIGHT",
+        "text": "哇，城里果然布置起来了，嘿嘿，真好看。",
+        "next": 3
+      },
+      {
+        "id": 3,
+        "type": "DIALOGUE",
+        "name": "派蒙",
+        "position": "RIGHT",
+        "text": "一到风花节蒙德就没什么委托可接，这下没有收入了……不过不管怎么说平时都深受凯瑟琳关照，要不要去向她问个好？",
+        "next": 4
+      },
+      {
+        "id": 4,
+        "type": "DIALOGUE",
+        "name": "旅行者",
+        "position": "LEFT",
+        "text": "好啊，走吧。",
+        "next": -1
       }
     ],
-    "endWay": "END",
-    "branches": [],
-    "next": "spot2",
     "group": ""
   },
   "plot2": {
     "dialogue": [
       {
-        "name": "派蒙",
+        "id": 0,
+        "type": "DIALOGUE",
+        "name": "凯瑟琳",
         "position": "RIGHT",
-        "text": "哇，城里果然布置起来了，嘿嘿，真好看。"
+        "text": "旅行者，派蒙，你们好。",
+        "next": 1
       },
       {
+        "id": 1,
+        "type": "DIALOGUE",
         "name": "派蒙",
-        "position": "RIGHT",
-        "text": "一到风花节蒙德就没什么委托可接，这下没有收入了……不过不管怎么说平时都深受凯瑟琳关照，要不要去向她问个好？"
+        "position": "LEFT",
+        "text": "凯瑟琳，最近还好吗？是不是老样子，风花节期间没有委托？",
+        "next": 2
       },
       {
-        "name": "旅行者",
+        "id": 2,
+        "type": "DIALOGUE",
+        "name": "凯瑟琳",
         "position": "RIGHT",
-        "text": "好啊，走吧。"
+        "text": "广义来说，是的，风花节期间，蒙德的各位依然遵循哪个传统，不能将自己的事情委托他人代劳。不过……",
+        "next": 3
+      },
+      {
+        "id": 3,
+        "type": "DIALOGUE",
+        "name": "派蒙",
+        "position": "LEFT",
+        "text": "不过？",
+        "next": 4
+      },
+      {
+        "id": 4,
+        "type": "DIALOGUE",
+        "name": "凯瑟琳",
+        "position": "RIGHT",
+        "text": "仔细观察周围，是你们的话，一定能发现异样。",
+        "next": 5
+      },
+      {
+        "id": 5,
+        "type": "DIALOGUE",
+        "name": "派蒙",
+        "position": "LEFT",
+        "text": "周围……",
+        "next": 6
+      },
+      {
+        "id": 6,
+        "type": "NARRATION",
+        "name": "旁白",
+        "position": "CENTER",
+        "text": "你仔细向周围打量。",
+        "next": 7
+      },
+      {
+        "id":7 ,
+        "type": "OPTION",
+        "name": "",
+        "position": "",
+        "text": "看向蒂玛乌斯",
+        "next":10
+      },
+      {
+        "id": 8,
+        "type": "OPTION",
+        "name": "",
+        "position": "",
+        "text": "仔细观察凯瑟琳小姐",
+        "next":11
+      },
+      {
+        "id": 9,
+        "type": "OPTION",
+        "name": "",
+        "position": "",
+        "text": "看向昆特和贝雅特丽奇",
+        "next":13
+      },
+      {
+        "id": 10,
+        "type": "NARRATION",
+        "name": "",
+        "position": "",
+        "text": "蒂玛乌斯像往常一样在炼金台前鼓捣着药剂，一切是那么的正常。",
+        "next":8
+      },
+      {
+        "id": 11,
+        "type": "NARRATION",
+        "name": "",
+        "position": "",
+        "text": "你仔细地观察着凯瑟琳小姐，她穿着绿色的朴素长裙，棕色的长卷发随意地披在肩上，领口有一个类似锁扣的黑色图案。凯瑟琳小姐还是和往常一样。",
+        "next":11
+      },
+      {
+        "id": 12,
+        "type": "DIALOGUE",
+        "name": "凯瑟琳",
+        "position": "RIGHT",
+        "text": "旅行者阁下，你在看什么？",
+        "next":8
+      },
+      {
+        "id": 13,
+        "type": "NARRATION",
+        "name": "",
+        "position": "",
+        "text": "平日亲昵的情侣今日的气氛却有点奇怪。",
+        "next":-1
       }
     ],
-    "endWay": "END",
-    "branches":[],
-    "next": "spot3",
     "group": ""
   }
-
 }

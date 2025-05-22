@@ -11,9 +11,12 @@
             stylesheets="@Chat.css"
             prefHeight="400.0" prefWidth="600.0">
     <center>
-        <VBox fx:id="narrationField" styleClass="narrationField">
-            <Label fx:id="narration" styleClass="narration"/>
-        </VBox>
+        <Pane>
+            <VBox fx:id="narrationField" styleClass="narrationField">
+                <Label fx:id="narration" text="旁白" styleClass="narration"/>
+            </VBox>
+            <VBox fx:id="options" styleClass="options" spacing="20"/>
+        </Pane>
     </center>
 
     <bottom>

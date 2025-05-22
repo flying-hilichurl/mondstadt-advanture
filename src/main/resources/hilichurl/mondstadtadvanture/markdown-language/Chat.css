@@ -45,3 +45,15 @@
     -fx-font-size: 20px;
     -fx-wrap-text: true;
 }
+
+.options{
+    -fx-max-height:500px;
+    -fx-max-width: 500px;
+}
+
+.options Button{
+    -fx-pref-width:300px;
+    -fx-pref-height:40px;
+    -fx-font-size:20px;
+    -fx-text-fill: white;
+}
