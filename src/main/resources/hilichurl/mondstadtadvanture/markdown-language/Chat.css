@@ -35,7 +35,9 @@
 
 .narrationField{
     -fx-max-height:200px;
-    -fx-max-width:500px;
+    -fx-pref-height:200px;
+    -fx-max-width:600px;
+    -fx-pref-width:600px;
     -fx-border-size:1px;
     -fx-border-color: black;
     -fx-background-color:rgba(120,120,120,0.4);
