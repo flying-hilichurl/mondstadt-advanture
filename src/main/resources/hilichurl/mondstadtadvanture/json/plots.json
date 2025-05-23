@@ -156,7 +156,215 @@
         "name": "",
         "position": "CENTER",
         "text": "平日亲昵的情侣今日的气氛却有点奇怪。",
-        "next":-1
+        "next":14
+      },
+      {
+        "id": 14,
+        "type": "DIALOGUE",
+        "name": "贝雅特丽奇",
+        "position": "LEFT",
+        "text": "……唉，难得的风花节，我却……",
+        "next":15
+      },
+      {
+        "id": 15,
+        "type": "DIALOGUE",
+        "name": "昆特",
+        "position": "RIGHT",
+        "text": "没有精神也没关系啊，这种事勉强不来嘛。要不然我们今晚去逛逛街，散散心，看看星星？",
+        "next":16
+      },
+      {
+        "id": 16,
+        "type": "DIALOGUE",
+        "name": "贝雅特丽奇",
+        "position": "LEFT",
+        "text": "看星星？摘星崖一到晚上就有人占座，你又不是不知道。唉，总觉得心烦，我还是走吧。",
+        "next":17
+      },
+      {
+        "id": 17,
+        "type": "DIALOGUE",
+        "name": "派蒙",
+        "position": "RIGHT",
+        "text": "欸？贝雅特丽奇居然很没精神呢，以前见到她，她总是在和昆特拌嘴呀聊天什么的，第一次见她这样。",
+        "next":18
+      },
+      {
+        "id": 18,
+        "type": "DIALOGUE",
+        "name": "昆特",
+        "position": "RIGHT",
+        "text": "你要去哪儿？我送你回家吧？",
+        "next":19
+      },
+      {
+        "id": 19,
+        "type": "DIALOGUE",
+        "name": "贝雅特丽奇",
+        "position": "LEFT",
+        "text": "不用啦。我想一个人静一静。而且，等会儿我还……有点事。",
+        "next":20
+      },
+      {
+        "id": 20,
+        "type": "DIALOGUE",
+        "name": "贝雅特丽奇",
+        "position": "LEFT",
+        "text": "……昆特，其实我不久前……",
+        "next":21
+      },
+      {
+        "id": 21,
+        "type": "DIALOGUE",
+        "name": "昆特",
+        "position": "RIGHT",
+        "text": "怎么了？",
+        "next":22
+      },
+      {
+        "id": 22,
+        "type": "DIALOGUE",
+        "name": "贝雅特丽奇",
+        "position": "LEFT",
+        "text": "……还是算了。没什么。昆特，我想，我们最近还是不要见面比较好。",
+        "next":23
+      },
+      {
+        "id": 23,
+        "type": "DIALOGUE",
+        "name": "昆特",
+        "position": "RIGHT",
+        "text": "欸？等一下，这句话的意思是要跟我绝交吗？我不是你最好的朋友了吗？！",
+        "next":24
+      },
+      {
+        "id": 24,
+        "type": "DIALOGUE",
+        "name": "派蒙",
+        "position": "RIGHT",
+        "text": "天啊，贝雅特丽奇头也不回的跑开了……我们多久没回蒙德，他们俩的爱情……呃，友情之路就走到尽头了吗？",
+        "next":25
+      },
+      {
+        "id": 25,
+        "type": "DIALOGUE",
+        "name": "旅行者",
+        "position": "LEFT",
+        "text": "怎么会怎样……",
+        "next":26
+      },
+      {
+        "id": 26,
+        "type": "DIALOGUE",
+        "name": "派蒙",
+        "position": "RIGHT",
+        "text": "你刚才说的反常该不会就是这个吧",
+        "next":27
+      },
+      {
+        "id": 27,
+        "type": "DIALOGUE",
+        "name": "凯瑟琳",
+        "position": "LEFT",
+        "text": "这确实是其中一环，贝雅特丽奇小姐郁郁寡欢好几天了。而且，还没完呢。",
+        "next":28
+      },
+      {
+        "id": 28,
+        "type": "NARRATION",
+        "name": "",
+        "position": "CENTER",
+        "text": "一个巡逻的骑士无精打采地向这边走来。",
+        "next":29
+      },
+      {
+        "id": 29,
+        "type": "DIALOGUE",
+        "name": "麦尔斯",
+        "position": "RIGHT",
+        "text": "啊，是荣誉骑士和派蒙……",
+        "next":30
+      },
+      {
+        "id":30,
+        "type": "DIALOGUE",
+        "name": "派蒙",
+        "position": "LEFT",
+        "text": "你怎么啦？看起来精神很差的样子呢。",
+        "next":31
+      },
+      {
+        "id": 31,
+        "type": "DIALOGUE",
+        "name": "麦尔斯",
+        "position": "RIGHT",
+        "text": "唔，按理说，身为蒙德城的士兵，我不应该如此萎靡，可最近一直精神不好，注意力也很难集中……",
+        "next":32
+      },
+      {
+        "id": 32,
+        "type": "DIALOGUE",
+        "name": "麦尔斯",
+        "position": "RIGHT",
+        "text": "有时半夜醒来，发现自己站在屋子外面，不知怎么就开始梦游了。",
+        "next":33
+      },
+      {
+        "id": 33,
+        "type": "OPTION",
+        "name": "",
+        "position": "CENTER",
+        "text": "去看看医生吧",
+        "next":35
+      },
+      {
+        "id":34,
+        "type": "OPTION",
+        "name": "",
+        "position": "CENTER",
+        "text": "去西风大教堂看看如何？",
+        "next":37
+      },
+      {
+        "id":35,
+        "type": "DIALOGUE",
+        "name": "派蒙",
+        "position": "LEFT",
+        "text": "该看医生了哦。",
+        "next":36
+      },
+      {
+        "id": 36,
+        "type": "DIALOGUE",
+        "name": "麦尔斯",
+        "position": "RIGHT",
+        "text": "你说得对，我去了诊所，可是，医生检查结果表明，我的身体状况良好。",
+        "next": 39
+      },
+      {
+        "id":37,
+        "type": "DIALOGUE",
+        "name": "派蒙",
+        "position": "LEFT",
+        "text": "哼哼，我知道，大教堂的芭芭拉肯定有办法。",
+        "next":38
+      },
+      {
+        "id":38,
+        "type": "DIALOGUE",
+        "name": "麦尔斯",
+        "position": "RIGHT",
+        "text": "祭礼牧师芭芭拉小姐说，我的身体状况良好，不过她非常好心地为我祈祷了，还说巴巴托斯大人会保佑我好起来的。",
+        "next":39
+      },
+      {
+        "id": 39,
+        "type": "DIALOGUE",
+        "name": "旅行者",
+        "position": "LEFT",
+        "text": "奇怪……",
+        "next": -1
       }
     ],
     "group": ""
