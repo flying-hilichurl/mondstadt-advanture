@@ -3,6 +3,7 @@ package hilichurl.mondstadtadvanture.jsonpojo;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import hilichurl.mondstadtadvanture.Program;
+import hilichurl.mondstadtadvanture.enums.GameScenes;
 import hilichurl.mondstadtadvanture.jsonpojo.plots.Plot;
 import hilichurl.mondstadtadvanture.jsonpojo.spots.Spots;
 
@@ -20,6 +21,7 @@ public class JsonReader {
 
     private JsonReader(){}
 
+    //获取场景数据
     public Spots getSpots() throws IOException {
         if(spots==null)
             readSpots();
@@ -27,6 +29,7 @@ public class JsonReader {
         return spots;
     }
 
+    //读取场景文件
     private void readSpots() throws IOException {
         File file= new File(Objects.requireNonNull(Program.class.getResource("json/spots.json")).getPath());
         spots=mapper.readValue(file,Spots.class);
@@ -39,5 +42,16 @@ public class JsonReader {
         JsonNode node = rootNode.get(key);
 
         return mapper.treeToValue(node,Plot.class);
+    }
+
+    //从json中查找可触发剧情
+    public String getPlotTarget(GameScenes gameScenes,String currentPlot) throws IOException {
+        File file=new File(Objects.requireNonNull(Program.class.getResource("json/plotTarget.json")).getPath());
+        JsonNode root=mapper.readTree(file);
+        JsonNode node = root.get(gameScenes.toString());
+        if(node.get(currentPlot)!=null)
+            return node.get(currentPlot).asText();
+        else
+            return null;
     }
 }

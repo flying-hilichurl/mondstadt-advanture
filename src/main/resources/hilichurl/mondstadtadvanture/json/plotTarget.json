@@ -1,5 +1,8 @@
 {
-  "Map": {
+  "MAP": {
     "": "plot1"
+  },
+  "SQUARE": {
+    "plot1": "plot2"
   }
 }

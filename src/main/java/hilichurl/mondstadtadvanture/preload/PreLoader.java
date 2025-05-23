@@ -4,11 +4,13 @@ import hilichurl.mondstadtadvanture.enums.GameScenes;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
@@ -17,10 +19,10 @@ import javafx.scene.layout.BackgroundSize;
 
 public class PreLoader{
     public static HashMap<GameScenes, BackgroundImage> sceneImages= new HashMap<>();
-    private final HashMap<GameScenes,String> paths =new HashMap<>();
+    private final HashMap<GameScenes,String> imagePaths =new HashMap<>();
     private final ArrayList<GameScenes> scenes =new ArrayList<>();
     private final static PreLoader instance = new PreLoader();
-    private final ArrayList<EventHandler<ActionEvent>> handlers=new ArrayList<>();  //事件响应者
+    private final ArrayList<EventHandler<ActionEvent>> imageHandlers =new ArrayList<>();  //事件响应者
     private int i=0;
 
     public static PreLoader getInstance(){return instance;}
@@ -29,27 +31,27 @@ public class PreLoader{
     //初始化hashmap和list
     private PreLoader(){
         scenes.add(GameScenes.MAIN_MENU);
-        paths.put(GameScenes.MAIN_MENU,"images/start-background.png");
+        imagePaths.put(GameScenes.MAIN_MENU,"images/start-background.png");
         scenes.add(GameScenes.MAP);
-        paths.put(GameScenes.MAP,"images/mondstadt.png");
+        imagePaths.put(GameScenes.MAP,"images/mondstadt.png");
         scenes.add(GameScenes.CATHEDRAL);
-        paths.put(GameScenes.CATHEDRAL,"images/cathedral.png");
+        imagePaths.put(GameScenes.CATHEDRAL,"images/cathedral.png");
         scenes.add(GameScenes.KNIGHTLY_ORDER);
-        paths.put(GameScenes.KNIGHTLY_ORDER,"images/knightlyOrder.png");
+        imagePaths.put(GameScenes.KNIGHTLY_ORDER,"images/knightlyOrder.png");
         scenes.add(GameScenes.ADVENTURE_GUIDE);
-        paths.put(GameScenes.ADVENTURE_GUIDE,"images/adventureGuide.png");
+        imagePaths.put(GameScenes.ADVENTURE_GUIDE,"images/adventureGuide.png");
         scenes.add(GameScenes.SQUARE);
-        paths.put(GameScenes.SQUARE,"images/square.jpg");
+        imagePaths.put(GameScenes.SQUARE,"images/square.jpg");
         scenes.add(GameScenes.ANGEL_BOUNTY);
-        paths.put(GameScenes.ANGEL_BOUNTY,"images/angelBounty.png");
+        imagePaths.put(GameScenes.ANGEL_BOUNTY,"images/angelBounty.png");
     }
 
-    public void preLoad(boolean once){
+    public void preLoadImage(boolean once){
         //创建继承于Service的匿名类
         Service<Image> imageLoader =new Service<>() {
             @Override
             protected Task<Image> createTask(){
-                return new ImageLoaderTask(paths.get(scenes.get(i)));
+                return new ImageLoaderTask(imagePaths.get(scenes.get(i)));
             }
         };
 
@@ -69,12 +71,11 @@ public class PreLoader{
                     new BackgroundSize(image.getWidth(),image.getHeight(),true,true,true,true)
             );
             sceneImages.put(scenes.get(i),bckImage);
-            System.out.println(scenes.get(i)+"加载完成");
             i++;
             if(!once)
                 Next();
             else{
-                invoke();
+                invoke(imageHandlers);
                 i=0;    //虽然i=0可以写在invoke中，当时依据单一职责原则，i不应该写进去
             }
         });
@@ -87,24 +88,24 @@ public class PreLoader{
     private void Next(){
         //若还有未加载的图片，继续加载
         if(i<scenes.size())
-            preLoad(false);
+            preLoadImage(false);
         else{
-            invoke();
+            invoke(imageHandlers);
             i=0;
         }
     }
 
     //注册事件
-    public void setOnLoaded(EventHandler<ActionEvent> value){
-        handlers.add(value);
+    public void setOnImageLoaded(EventHandler<ActionEvent> value){
+        imageHandlers.add(value);
     }
 
     //依次触发订阅事件
-    public void invoke(){
+    public void invoke(List<EventHandler<ActionEvent>> handlerList){
         ActionEvent actionEvent = new ActionEvent();
 
-        for(EventHandler<ActionEvent> handler:handlers)
+        for(EventHandler<ActionEvent> handler:handlerList)
             handler.handle(actionEvent);
-        handlers.clear();
+        handlerList.clear();
     }
 }

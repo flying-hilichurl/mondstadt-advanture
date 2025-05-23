@@ -23,11 +23,15 @@ import java.util.HashMap;
 
 public class SceneManager {
     private Stage stage;    //游戏窗口
-    private final HashMap<GameScenes,String> scenePath =new HashMap<>();
+    private final HashMap<GameScenes,String> scenePath =new HashMap<>();    //场景的fxml文件路径
+    private final HashMap<GameScenes,Scene> sortedScene =new HashMap<>();   //已加载的场景索引
+    private final HashMap<Scene,GameScenes> reserveSortedScene =new HashMap<>();    //场景索引的反转哈希表
     private final static SceneManager instance =new SceneManager();
     static Scene currentScene;
     static Dialogue currentDialogue;
     static GameScenes currentGameScene;
+
+    public HashMap<Scene,GameScenes> getReserveSortedScene(){return reserveSortedScene;}
 
     //初始化的时候，将GameScenes和地址一一对应
     private SceneManager(){
@@ -54,17 +58,26 @@ public class SceneManager {
             throw new Exception("无法获取到Stage窗口");
         }
 
-        FXMLLoader loader =new FXMLLoader(Program.class.getResource(scenePath.get(gameScene)));
-        Pane root = (Pane)loader.load();
-        Scene scene =new Scene(root);
-        currentScene = scene;
-        currentGameScene=gameScene;
-        stage.setScene(scene);
+        if(sortedScene.containsKey(gameScene)){
+            stage.setScene(sortedScene.get(gameScene));
+            currentGameScene=gameScene;
+            currentScene=sortedScene.get(gameScene);
+        }
+        else {
+            FXMLLoader loader = new FXMLLoader(Program.class.getResource(scenePath.get(gameScene)));
+            Pane root = (Pane) loader.load();
+            Scene scene = new Scene(root);
+            currentScene = scene;
+            currentGameScene = gameScene;
+            sortedScene.put(gameScene, scene);
+            reserveSortedScene.put(scene,gameScene);
+            stage.setScene(scene);
 
-        //获取加载好的背景图
-        BackgroundImage backImage = PreLoader.getInstance().getSceneImages().get(gameScene);
-        Background background = new Background(backImage);
-        root.setBackground(background);
+            //获取加载好的背景图
+            BackgroundImage backImage = PreLoader.getInstance().getSceneImages().get(gameScene);
+            Background background = new Background(backImage);
+            root.setBackground(background);
+        }
 
         //神秘的bug消除方式
         stage.setMaximized(false);

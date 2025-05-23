@@ -106,7 +106,7 @@
         "id":7 ,
         "type": "OPTION",
         "name": "",
-        "position": "",
+        "position": "LEFT",
         "text": "看向蒂玛乌斯",
         "next":10
       },
@@ -114,7 +114,7 @@
         "id": 8,
         "type": "OPTION",
         "name": "",
-        "position": "",
+        "position": "LEFT",
         "text": "仔细观察凯瑟琳小姐",
         "next":11
       },
@@ -122,7 +122,7 @@
         "id": 9,
         "type": "OPTION",
         "name": "",
-        "position": "",
+        "position": "LEFT",
         "text": "看向昆特和贝雅特丽奇",
         "next":13
       },
@@ -130,7 +130,7 @@
         "id": 10,
         "type": "NARRATION",
         "name": "",
-        "position": "",
+        "position": "CENTER",
         "text": "蒂玛乌斯像往常一样在炼金台前鼓捣着药剂，一切是那么的正常。",
         "next":8
       },
@@ -138,7 +138,7 @@
         "id": 11,
         "type": "NARRATION",
         "name": "",
-        "position": "",
+        "position": "CENTER",
         "text": "你仔细地观察着凯瑟琳小姐，她穿着绿色的朴素长裙，棕色的长卷发随意地披在肩上，领口有一个类似锁扣的黑色图案。凯瑟琳小姐还是和往常一样。",
         "next":11
       },
@@ -154,7 +154,7 @@
         "id": 13,
         "type": "NARRATION",
         "name": "",
-        "position": "",
+        "position": "CENTER",
         "text": "平日亲昵的情侣今日的气氛却有点奇怪。",
         "next":-1
       }

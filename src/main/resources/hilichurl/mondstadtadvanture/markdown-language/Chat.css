@@ -46,6 +46,7 @@
 .narration{
     -fx-font-size: 20px;
     -fx-wrap-text: true;
+    -fx-text-fill:white;
 }
 
 .options{
@@ -57,5 +58,5 @@
     -fx-pref-width:300px;
     -fx-pref-height:40px;
     -fx-font-size:20px;
-    -fx-text-fill: white;
+    -fx-text-fill: black;
 }

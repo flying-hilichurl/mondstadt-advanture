@@ -4,6 +4,8 @@ import hilichurl.mondstadtadvanture.PlotManager;
 import hilichurl.mondstadtadvanture.preload.PreLoader;
 import hilichurl.mondstadtadvanture.scenes.SceneManager;
 import hilichurl.mondstadtadvanture.enums.GameScenes;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -14,20 +16,34 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class StartInterfaceController {
     @FXML
     public void onStart(ActionEvent event) {
-        //加载图片资源
-        PreLoader.getInstance().setOnLoaded(e-> {
+        PreLoader.getInstance().setOnImageLoaded(e-> {
             try {
-                SceneManager.getInstance().switchScene(GameScenes.MAP);
                 PlotManager.getInstance().startPlot();
-                PlotManager.getInstance().play();
+                SceneManager.getInstance().switchScene(GameScenes.MAP);
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
         });
-        PreLoader.getInstance().preLoad(false);
+        //加载图片资源
+        PreLoader.getInstance().preLoadImage(false);
+
+        Node source = (Node)event.getSource();
+        Stage stage = (Stage)source.getScene().getWindow();
+        stage.sceneProperty().addListener(new ChangeListener<Scene>() {
+            @Override
+            public void changed(ObservableValue<? extends Scene> observableValue, Scene oldScene, Scene newScene) {
+                try {
+                    PlotManager.getInstance().tryTargetPlot(newScene);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
 
         //显示加载界面
         showLoading(event);
