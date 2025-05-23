@@ -1,0 +1,14 @@
+{
+  "SQUARE": {
+    "k_01":[
+      {
+        "id": 0,
+        "type": "DIALOGUE",
+        "name": "凯瑟琳",
+        "position": "RIGHT",
+        "text": "再见。",
+        "next": -1
+      }
+    ]
+  }
+}

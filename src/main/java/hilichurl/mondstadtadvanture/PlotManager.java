@@ -3,6 +3,7 @@ package hilichurl.mondstadtadvanture;
 import hilichurl.mondstadtadvanture.enums.GameScenes;
 import hilichurl.mondstadtadvanture.jsonpojo.JsonReader;
 import hilichurl.mondstadtadvanture.jsonpojo.plots.Plot;
+import hilichurl.mondstadtadvanture.scenes.ChatSceneManager;
 import hilichurl.mondstadtadvanture.scenes.SceneManager;
 import javafx.scene.Scene;
 
@@ -24,7 +25,7 @@ public class PlotManager {
 
     public void play() throws Exception {
         Plot plot = JsonReader.getInstance().readPlots(currentPlot);
-        SceneManager.getInstance().switchChatScene(plot.getDialogue());
+        ChatSceneManager.getInstance().switchChatScene(plot.getDialogue());
     }
 
     //检测此场景有无可触发剧情

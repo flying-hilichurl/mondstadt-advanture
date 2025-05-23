@@ -1,0 +1,16 @@
+{
+  "SQUARE": {
+    "凯瑟琳": [
+      {
+        "condition": "plot1",
+        "text": "问好",
+        "plot": "plot2"
+      },
+      {
+        "condition": "",
+        "text": "离开",
+        "plot": "k_01"
+      }
+    ]
+  }
+}
