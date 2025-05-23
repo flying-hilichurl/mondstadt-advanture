@@ -15,7 +15,7 @@
             <VBox fx:id="narrationField" styleClass="narrationField">
                 <Label fx:id="narration" text="旁白" styleClass="narration"/>
             </VBox>
-            <VBox fx:id="options" styleClass="options" spacing="20"/>
+            <VBox fx:id="options" alignment="CENTER" styleClass="options" spacing="20"/>
         </VBox>
     </center>
 
