@@ -19,10 +19,12 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChatSceneManager {
+//因与聊天界面相关的逻辑较多，于是单独用此类负责聊天界面的界面相关逻辑
+public class ChatSceneManager extends SceneManager{
     private final static ChatSceneManager instance=new ChatSceneManager();
     private Label name;
     private Label text;
@@ -41,37 +43,10 @@ public class ChatSceneManager {
 
     //显示对话场景
     public void switchChatScene(ArrayList<Dialogue> dialogues) throws Exception {
-        if(SceneManager.getInstance().stage==null){
-            throw new Exception("无法获取到Stage窗口");
-        }
+        //变更到聊天界面
+        chatScene=createScene(Program.class.getResource("markdown-language/Chat.fxml"));
+        GameSceneManager.getInstance().stage.setScene(chatScene);
 
-        if(chatScene!=null){
-            SceneManager.getInstance().stage.setScene(chatScene);
-
-            //获取加载好的背景图
-            BackgroundImage backImage = PreLoader.getInstance().getSceneImages().get(SceneManager.currentGameScene);
-            background = new Background(backImage);
-        }
-        else {
-            //创建对话界面
-            FXMLLoader loader = new FXMLLoader(Program.class.getResource("markdown-language/Chat.fxml"));
-            Pane root = (Pane) loader.load();
-            chatScene = new Scene(root);
-            SceneManager.getInstance().stage.setScene(chatScene);
-
-            //获取对话界面的控件
-            name = (Label) root.lookup("#name");
-            text = (Label) root.lookup("#text");
-            narration = (Label) root.lookup("#narration");
-            center = (VBox) root.lookup("#narrationField");
-            bottom = (VBox) root.lookup("#dialogBox");
-            options = (VBox) root.lookup("#options");
-
-            //获取加载好的背景图
-            BackgroundImage backImage = PreLoader.getInstance().getSceneImages().get(SceneManager.currentGameScene);
-            background = new Background(backImage);
-            root.setBackground(background);
-        }
         //根据不同类型显示不同对话
         currentDialogue = dialogues.getFirst();
         if(currentDialogue.getType()== DialogueType.NARRATION)
@@ -85,45 +60,17 @@ public class ChatSceneManager {
         //点击屏幕，到下一句话
         chatScene.setOnMouseClicked(this::plotClickedHandler);
 
-        //神秘的bug消除方式
-        SceneManager.getInstance().stage.setMaximized(false);
-        SceneManager.getInstance().stage.setMaximized(true);
+        //刷新
+        refresh(GameSceneManager.getInstance().stage);
     }
 
     //通过选项界面显示可以进行的对话
     public void switchChatScene(List<JsonNode> nodes, GameScenes gameScenes) throws Exception {
-        if(SceneManager.getInstance().stage==null){
-            throw new Exception("无法获取到Stage窗口");
-        }
+        //变更到聊天界面
+        chatScene=createScene(Program.class.getResource("markdown-language/Chat.fxml"));
+        GameSceneManager.getInstance().stage.setScene(chatScene);
 
-        if(chatScene!=null){
-            SceneManager.getInstance().stage.setScene(chatScene);
-
-            //获取加载好的背景图
-            BackgroundImage backImage = PreLoader.getInstance().getSceneImages().get(SceneManager.currentGameScene);
-            background = new Background(backImage);
-        }
-        else {
-            //创建对话界面
-            FXMLLoader loader = new FXMLLoader(Program.class.getResource("markdown-language/Chat.fxml"));
-            Pane root = (Pane) loader.load();
-            chatScene = new Scene(root);
-            SceneManager.getInstance().stage.setScene(chatScene);
-
-            //获取对话界面的控件
-            name = (Label) root.lookup("#name");
-            text = (Label) root.lookup("#text");
-            narration = (Label) root.lookup("#narration");
-            center = (VBox) root.lookup("#narrationField");
-            bottom = (VBox) root.lookup("#dialogBox");
-            options = (VBox) root.lookup("#options");
-
-            //获取加载好的背景图
-            BackgroundImage backImage = PreLoader.getInstance().getSceneImages().get(SceneManager.currentGameScene);
-            background = new Background(backImage);
-            root.setBackground(background);
-        }
-
+        //显示选项
         showChatNode(options);
 
         options.getChildren().clear();
@@ -151,13 +98,12 @@ public class ChatSceneManager {
             }
         });
 
-        //神秘的bug消除方式
-        SceneManager.getInstance().stage.setMaximized(false);
-        SceneManager.getInstance().stage.setMaximized(true);
+        //刷新
+        refresh(GameSceneManager.getInstance().stage);
     }
 
     public void endChatScene() throws Exception {
-        SceneManager.getInstance().switchScene(SceneManager.currentGameScene);
+        GameSceneManager.getInstance().switchGameScene(GameSceneManager.currentGameScene);
     }
 
     //控制显示的部分
@@ -233,5 +179,42 @@ public class ChatSceneManager {
                 throw new RuntimeException(e);
             }
         }
+    }
+
+    @Override
+    Scene createScene(URL path) throws Exception {
+        if(GameSceneManager.getInstance().stage==null){
+            throw new Exception("无法获取到Stage窗口");
+        }
+
+        Scene scene;
+        if(chatScene!=null){
+            scene=chatScene;
+
+            //获取加载好的背景图
+            BackgroundImage backImage = PreLoader.getInstance().getSceneImages().get(GameSceneManager.currentGameScene);
+            background = new Background(backImage);
+        }
+        else {
+            //创建对话界面
+            scene = super.createScene(path);
+            Pane root =(Pane)scene.getRoot();
+            GameSceneManager.getInstance().stage.setScene(chatScene);
+
+            //获取对话界面的控件
+            name = (Label) root.lookup("#name");
+            text = (Label) root.lookup("#text");
+            narration = (Label) root.lookup("#narration");
+            center = (VBox) root.lookup("#narrationField");
+            bottom = (VBox) root.lookup("#dialogBox");
+            options = (VBox) root.lookup("#options");
+
+            //获取加载好的背景图
+            BackgroundImage backImage = PreLoader.getInstance().getSceneImages().get(GameSceneManager.currentGameScene);
+            background = new Background(backImage);
+            root.setBackground(background);
+        }
+
+        return scene;
     }
 }

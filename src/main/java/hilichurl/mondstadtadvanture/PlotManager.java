@@ -4,7 +4,7 @@ import hilichurl.mondstadtadvanture.enums.GameScenes;
 import hilichurl.mondstadtadvanture.jsonpojo.JsonReader;
 import hilichurl.mondstadtadvanture.jsonpojo.plots.Plot;
 import hilichurl.mondstadtadvanture.scenes.ChatSceneManager;
-import hilichurl.mondstadtadvanture.scenes.SceneManager;
+import hilichurl.mondstadtadvanture.scenes.GameSceneManager;
 import javafx.scene.Scene;
 
 import java.util.HashMap;
@@ -32,7 +32,7 @@ public class PlotManager {
 
     //检测此场景有无可触发剧情
     public void tryTargetPlot(Scene scene) throws Exception {
-        HashMap<Scene,GameScenes> map = SceneManager.getInstance().getReserveSortedScene();
+        HashMap<Scene,GameScenes> map = GameSceneManager.getInstance().getReserveSortedScene();
         if(map.containsKey(scene)){
             String nextPlot = JsonReader.getInstance().getPlotTarget(map.get(scene),currentPlot);
             if(nextPlot!=null){

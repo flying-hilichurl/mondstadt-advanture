@@ -23,7 +23,7 @@ public class SpotSetter {
     public static SpotSetter getInstance(){return instance;}
 
     public void setSpot(GameScenes gameScenes) throws IOException {
-        Parent root = SceneManager.currentScene.getRoot();
+        Parent root = GameSceneManager.currentScene.getRoot();
 
         //查找spot
         Spot targetSpot=null;
@@ -59,7 +59,7 @@ public class SpotSetter {
             else if(option.getType()==Interacter.SPOT){
                 button.setOnAction(event->{
                     try {
-                        SceneManager.getInstance().switchScene(option.getTarget());
+                        GameSceneManager.getInstance().switchGameScene(option.getTarget());
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }

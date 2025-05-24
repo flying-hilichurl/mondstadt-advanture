@@ -2,7 +2,7 @@ package hilichurl.mondstadtadvanture.fxmlcontroller;
 
 import hilichurl.mondstadtadvanture.PlotManager;
 import hilichurl.mondstadtadvanture.preload.PreLoader;
-import hilichurl.mondstadtadvanture.scenes.SceneManager;
+import hilichurl.mondstadtadvanture.scenes.GameSceneManager;
 import hilichurl.mondstadtadvanture.enums.GameScenes;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -16,15 +16,13 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 public class StartInterfaceController {
     @FXML
     public void onStart(ActionEvent event) {
         PreLoader.getInstance().setOnImageLoaded(e-> {
             try {
                 PlotManager.getInstance().startPlot();
-                SceneManager.getInstance().switchScene(GameScenes.MAP);
+                GameSceneManager.getInstance().switchGameScene(GameScenes.MAP);
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }

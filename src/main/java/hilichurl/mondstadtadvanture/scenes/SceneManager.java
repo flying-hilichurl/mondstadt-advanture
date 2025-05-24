@@ -1,97 +1,24 @@
 package hilichurl.mondstadtadvanture.scenes;
 
-import hilichurl.mondstadtadvanture.Program;
-import hilichurl.mondstadtadvanture.enums.GameScenes;
-import hilichurl.mondstadtadvanture.preload.PreLoader;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.Pane;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
-import java.util.HashMap;
+import java.net.URL;
 
-public class SceneManager {
-    Stage stage;    //游戏窗口
-    private final HashMap<GameScenes,String> scenePath =new HashMap<>();    //场景的fxml文件路径
-    private final HashMap<GameScenes,Scene> sortedScene =new HashMap<>();   //已加载的场景索引
-    private final HashMap<Scene,GameScenes> reserveSortedScene =new HashMap<>();    //场景索引的反转哈希表
-    private final static SceneManager instance =new SceneManager();
-    static Scene currentScene;
-    static GameScenes currentGameScene;
+public abstract class SceneManager {
+    //创建一个场景
+    Scene createScene(URL path) throws Exception {
+        FXMLLoader loader = new FXMLLoader(path);
+        Pane root = (Pane) loader.load();
 
-    public HashMap<Scene,GameScenes> getReserveSortedScene(){return reserveSortedScene;}
-
-    //初始化的时候，将GameScenes和地址一一对应
-    private SceneManager(){
-        scenePath.put(GameScenes.MAIN_MENU,"markdown-language/StartInterface.fxml");
-        scenePath.put(GameScenes.MAP,"markdown-language/WorldMap.fxml");
-        scenePath.put(GameScenes.ADVENTURE_GUIDE,"markdown-language/Spot.fxml");
-        scenePath.put(GameScenes.KNIGHTLY_ORDER,"markdown-language/Spot.fxml");
-        scenePath.put(GameScenes.SQUARE,"markdown-language/Spot.fxml");
-        scenePath.put(GameScenes.ANGEL_BOUNTY,"markdown-language/Spot.fxml");
-        scenePath.put(GameScenes.CATHEDRAL,"markdown-language/Spot.fxml");
+        return new Scene(root);
     }
 
-    //获取窗口
-    public void init(Stage stage) throws Exception {
-        this.stage=stage;
-
-        switchScene(GameScenes.MAIN_MENU);
-        configStage(stage);
-    }
-
-    //切换到对应的场景
-    public void switchScene(GameScenes gameScene) throws Exception {
-        if(stage==null){
-            throw new Exception("无法获取到Stage窗口");
-        }
-
-        if(sortedScene.containsKey(gameScene)){
-            stage.setScene(sortedScene.get(gameScene));
-            currentGameScene=gameScene;
-            currentScene=sortedScene.get(gameScene);
-        }
-        else {
-            FXMLLoader loader = new FXMLLoader(Program.class.getResource(scenePath.get(gameScene)));
-            Pane root = (Pane) loader.load();
-            Scene scene = new Scene(root);
-            currentScene = scene;
-            currentGameScene = gameScene;
-            sortedScene.put(gameScene, scene);
-            reserveSortedScene.put(scene,gameScene);
-            stage.setScene(scene);
-
-            //获取加载好的背景图
-            BackgroundImage backImage = PreLoader.getInstance().getSceneImages().get(gameScene);
-            Background background = new Background(backImage);
-            root.setBackground(background);
-        }
-
-        //神秘的bug消除方式
+    //介于一个我找不出来的bug，于是使用了这种实在不优雅的方式刷新界面。黑猫白猫，能抓耗子就是好猫
+    void refresh(Stage stage){
         stage.setMaximized(false);
         stage.setMaximized(true);
     }
-
-    //配置窗口大小
-    private void configStage(Stage stage){
-        Rectangle2D visualBounds = Screen.getPrimary().getVisualBounds();
-        //屏幕宽度
-        double screenWidth = (int) visualBounds.getWidth();
-        //屏幕高度
-        double screenHeight = (int) visualBounds.getHeight();
-        stage.setWidth(screenWidth);
-        stage.setHeight(screenHeight);
-        stage.setX(0);
-        stage.setY(0);
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.setMaximized(true);
-        stage.show();
-    }
-
-    public static SceneManager getInstance(){return instance;}
 }
