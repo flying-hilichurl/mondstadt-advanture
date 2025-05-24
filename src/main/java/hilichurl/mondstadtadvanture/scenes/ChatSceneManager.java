@@ -79,6 +79,7 @@ public class ChatSceneManager extends SceneManager{
                 String text = action.get("text").asText();
                 Button button = new Button(text);
                 options.getChildren().add(button);
+                chatScene.setOnMouseClicked(null);
 
                 //选项触发对应剧情
                 button.setOnAction(event->{
@@ -102,6 +103,7 @@ public class ChatSceneManager extends SceneManager{
         refresh(GameSceneManager.getInstance().stage);
     }
 
+    //退出聊天界面
     public void endChatScene() throws Exception {
         GameSceneManager.getInstance().switchGameScene(GameSceneManager.currentGameScene);
     }
@@ -125,6 +127,7 @@ public class ChatSceneManager extends SceneManager{
         text.setText(dialogue.getText());
     }
 
+    //设置旁白显示
     private void setNarration(Dialogue dialogue){
         showChatNode(center);
         narration.setText(dialogue.getText());
