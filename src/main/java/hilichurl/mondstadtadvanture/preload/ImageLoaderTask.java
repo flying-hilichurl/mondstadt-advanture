@@ -19,7 +19,6 @@ public class ImageLoaderTask extends Task<Image> {
     @Override
     protected Image call() throws Exception {
         URL url=new URI(Objects.requireNonNull(Program.class.getResource(imagePath)).toExternalForm()).toURL();
-        System.out.println(url);
         try(InputStream inputStream = url.openStream()){
             Image image=new Image(inputStream);
             return image;

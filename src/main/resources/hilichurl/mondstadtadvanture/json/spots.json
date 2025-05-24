@@ -1,115 +1,107 @@
 {
   "spots": [
     {
-      "name": "喷泉广场",
+      "name": "SQUARE",
       "text": "蒙德城中心的广场，喷涌的泉水映出谈笑的人群。",
       "background": "images/square.jpg",
       "optionals": [
         {
           "text": "[猎鹿人]餐馆",
           "type": "PERSON",
-          "target": "NONE",
-          "plotTable": ""
+          "target": "NONE"
         },
         {
           "text":"蒂玛乌斯",
           "type": "PERSON",
-          "target": "NONE",
-          "plotTable": ""
+          "target": "NONE"
+        },
+        {
+          "text":"凯瑟琳",
+          "type": "PERSON",
+          "target": "NONE"
         },
         {
           "text":"离开",
           "type": "SPOT",
-          "target": "MAP",
-          "plotTable": ""
+          "target": "MAP"
         }
       ]
     },
     {
-      "name": "西风骑士团",
+      "name": "KNIGHTLY_ORDER",
       "text": "负责蒙德城治安的西风骑士团驻地。",
       "background": "images/knightlyOrder.png",
       "optionals": [
         {
           "text":"[琴]的办公室",
           "type": "SPOT",
-          "target": "MAP",
-          "plotTable": ""
+          "target": "MAP"
         },
         {
           "text":"图书馆",
           "type": "SPOT",
-          "target": "MAP",
-          "plotTable": ""
+          "target": "MAP"
         },
         {
           "text":"[阿贝多]的办公室",
           "type": "SPOT",
-          "target": "MAP",
-          "plotTable": ""
+          "target": "MAP"
         },
         {
           "text":"离开",
           "type": "SPOT",
-          "target": "MAP",
-          "plotTable": ""
+          "target": "MAP"
         }
       ]
     },
     {
-      "name": "冒险家协会",
+      "name": "ADVENTURE_GUIDE",
       "text": "冒险家协会的驻地。这里曾经出过大冒险家，不过现在更多是缺乏冒险精神的家伙",
       "background": "images/adventureGuide.png",
       "optionals": [
         {
           "text":"瑟留斯",
           "type": "PERSON",
-          "target": "NONE",
-          "plotTable": ""
+          "target": "NONE"
         },
         {
           "text":"离开",
           "type": "SPOT",
-          "target": "MAP",
-          "plotTable": ""
+          "target": "MAP"
         }
       ]
     },
     {
-      "name": "西风大教堂",
+      "name": "CATHEDRAL",
       "text": "阳光洒在前来祈礼的人脸上，温暖又祥和",
       "background": "images/cathedral.png",
       "optionals": [
         {
           "text":"芭芭拉",
           "type": "PERSON",
-          "target": "NONE",
-          "plotTable": ""
+          "target": "NONE"
         },
         {
           "text":"离开",
           "type": "SPOT",
-          "target": "MAP",
-          "plotTable": ""
+          "target": "MAP"
         }
       ]
     },
     {
-      "name": "天使的馈赠",
+      "name": "ANGEL_BOUNTY",
       "text": "牧歌之城最好的酒馆，背靠晨曦酒庄，凭借优质的酒水使得一众吟游诗人和酒客流连忘返。",
       "background": "images/angelBounty.png",
       "optionals": [
         {
           "text":"迪卢克",
           "type": "PERSON",
-          "target": "NONE",
-          "plotTable": ""
+          "target": "NONE"
         },
         {
           "text":"离开",
           "type": "SPOT",
-          "target": "MAP",
-          "plotTable": ""
+          "target": "MAP"
         }
       ]
     }

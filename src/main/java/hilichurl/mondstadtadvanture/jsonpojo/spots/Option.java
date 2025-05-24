@@ -7,7 +7,6 @@ public class Option {
     private String text;
     private Interacter type;
     private GameScenes target;
-    private String plotTable;
 
     public String getText() {return text;}
     public void setText(String text){this.text=text;}
@@ -17,7 +16,4 @@ public class Option {
 
     public GameScenes getTarget(){return target;}
     public void setTarget(GameScenes scenes){this.target=scenes;}
-
-    public String getPlotTable(){return plotTable;}
-    public void setPlotTable(String plotTable){this.plotTable=plotTable;}
 }

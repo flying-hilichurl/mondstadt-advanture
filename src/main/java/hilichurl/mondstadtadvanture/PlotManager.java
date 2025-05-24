@@ -7,12 +7,13 @@ import hilichurl.mondstadtadvanture.scenes.ChatSceneManager;
 import hilichurl.mondstadtadvanture.scenes.SceneManager;
 import javafx.scene.Scene;
 
-import java.io.IOException;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class PlotManager {
     private final static PlotManager instance = new PlotManager();
     private String currentPlot;
+    private String currentGroup;
 
     public static PlotManager getInstance(){return instance;}
 
@@ -21,6 +22,7 @@ public class PlotManager {
     //重新开始游戏时触发，进入第一个剧情节点
     public void startPlot(){
         currentPlot = "";
+        currentGroup="";
     }
 
     public void play() throws Exception {
@@ -39,4 +41,17 @@ public class PlotManager {
             }
         }
     }
+
+    public boolean checkChatTarget(String condition){
+        if(Objects.equals(condition, ""))
+            return true;
+        else if(Objects.equals(condition,currentGroup))
+            return true;
+        else if(Objects.equals(condition,currentPlot))
+            return true;
+        else
+            return false;
+    }
+
+    public void setCurrentPlot(String plot){currentPlot=plot;}
 }

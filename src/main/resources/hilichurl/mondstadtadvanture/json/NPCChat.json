@@ -1,0 +1,34 @@
+{
+  "SQUARE": {
+    "凯瑟琳": [
+      {
+        "condition": "plot1",
+        "text": "问好",
+        "plot": "plot2",
+        "mainPlot": true
+      },
+      {
+        "condition": "",
+        "text": "离开",
+        "plot": "k_01",
+        "mainPlot": false
+      }
+    ]
+  },
+  "ANGEL_BOUNTY": {
+    "迪卢克": [
+      {
+        "condition": "",
+        "text": "你好！",
+        "plot": "d_01",
+        "mainPlot": false
+      },
+      {
+        "condition": "",
+        "text": "再见",
+        "plot": "d_02",
+        "mainPlot": false
+      }
+    ]
+  }
+}

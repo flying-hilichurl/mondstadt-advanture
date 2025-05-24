@@ -1,14 +1,18 @@
 package hilichurl.mondstadtadvanture.jsonpojo;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import hilichurl.mondstadtadvanture.Program;
 import hilichurl.mondstadtadvanture.enums.GameScenes;
+import hilichurl.mondstadtadvanture.jsonpojo.plots.Dialogue;
 import hilichurl.mondstadtadvanture.jsonpojo.plots.Plot;
 import hilichurl.mondstadtadvanture.jsonpojo.spots.Spots;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 //从json文件中读取出文本描述和选项
@@ -53,5 +57,29 @@ public class JsonReader {
             return node.get(currentPlot).asText();
         else
             return null;
+    }
+
+    //查找NPC的聊天选项
+    public List<JsonNode> getNPCChat(String name, GameScenes gameScenes) throws IOException {
+        File file=new File(Objects.requireNonNull(Program.class.getResource("json/NPCChat.json")).getPath());
+        JsonNode root=mapper.readTree(file);
+        JsonNode sceneNode = root.get(gameScenes.toString());
+        JsonNode node = sceneNode.get(name);
+
+        if(node.isArray()){
+            return mapper.convertValue(node, new TypeReference<>() {
+            });
+        }else
+            return null;
+    }
+
+    //查找聊天选项对应的文本
+    public ArrayList<Dialogue> getChatConnect(String connect, GameScenes gameScenes) throws IOException {
+        File file = new File(Objects.requireNonNull(Program.class.getResource("Json/chatConnect.json")).getPath());
+        JsonNode root=mapper.readTree(file);
+        JsonNode sceneNode=root.get(gameScenes.toString());
+        JsonNode node = sceneNode.get(connect);
+
+        return mapper.convertValue(node, new TypeReference<ArrayList<Dialogue>>(){});
     }
 }

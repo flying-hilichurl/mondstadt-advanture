@@ -1,7 +1,11 @@
 package hilichurl.mondstadtadvanture.scenes;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import hilichurl.mondstadtadvanture.PlotManager;
 import hilichurl.mondstadtadvanture.Program;
 import hilichurl.mondstadtadvanture.enums.DialogueType;
+import hilichurl.mondstadtadvanture.enums.GameScenes;
+import hilichurl.mondstadtadvanture.jsonpojo.JsonReader;
 import hilichurl.mondstadtadvanture.jsonpojo.plots.Dialogue;
 import hilichurl.mondstadtadvanture.preload.PreLoader;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +18,9 @@ import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ChatSceneManager {
     private final static ChatSceneManager instance=new ChatSceneManager();
@@ -24,6 +30,7 @@ public class ChatSceneManager {
     private Label narration;
     private VBox bottom;
     private VBox options;
+    private Background background;
     private ArrayList<Dialogue> currentDialogues;
     private Scene chatScene;
     private Dialogue currentDialogue;
@@ -40,12 +47,10 @@ public class ChatSceneManager {
 
         if(chatScene!=null){
             SceneManager.getInstance().stage.setScene(chatScene);
-            Pane root=(Pane)chatScene.getRoot();
 
             //获取加载好的背景图
             BackgroundImage backImage = PreLoader.getInstance().getSceneImages().get(SceneManager.currentGameScene);
-            Background background = new Background(backImage);
-            root.setBackground(background);
+            background = new Background(backImage);
         }
         else {
             //创建对话界面
@@ -64,7 +69,7 @@ public class ChatSceneManager {
 
             //获取加载好的背景图
             BackgroundImage backImage = PreLoader.getInstance().getSceneImages().get(SceneManager.currentGameScene);
-            Background background = new Background(backImage);
+            background = new Background(backImage);
             root.setBackground(background);
         }
         //根据不同类型显示不同对话
@@ -79,6 +84,72 @@ public class ChatSceneManager {
 
         //点击屏幕，到下一句话
         chatScene.setOnMouseClicked(this::plotClickedHandler);
+
+        //神秘的bug消除方式
+        SceneManager.getInstance().stage.setMaximized(false);
+        SceneManager.getInstance().stage.setMaximized(true);
+    }
+
+    //通过选项界面显示可以进行的对话
+    public void switchChatScene(List<JsonNode> nodes, GameScenes gameScenes) throws Exception {
+        if(SceneManager.getInstance().stage==null){
+            throw new Exception("无法获取到Stage窗口");
+        }
+
+        if(chatScene!=null){
+            SceneManager.getInstance().stage.setScene(chatScene);
+
+            //获取加载好的背景图
+            BackgroundImage backImage = PreLoader.getInstance().getSceneImages().get(SceneManager.currentGameScene);
+            background = new Background(backImage);
+        }
+        else {
+            //创建对话界面
+            FXMLLoader loader = new FXMLLoader(Program.class.getResource("markdown-language/Chat.fxml"));
+            Pane root = (Pane) loader.load();
+            chatScene = new Scene(root);
+            SceneManager.getInstance().stage.setScene(chatScene);
+
+            //获取对话界面的控件
+            name = (Label) root.lookup("#name");
+            text = (Label) root.lookup("#text");
+            narration = (Label) root.lookup("#narration");
+            center = (VBox) root.lookup("#narrationField");
+            bottom = (VBox) root.lookup("#dialogBox");
+            options = (VBox) root.lookup("#options");
+
+            //获取加载好的背景图
+            BackgroundImage backImage = PreLoader.getInstance().getSceneImages().get(SceneManager.currentGameScene);
+            background = new Background(backImage);
+            root.setBackground(background);
+        }
+
+        showChatNode(options);
+
+        options.getChildren().clear();
+        nodes.forEach(action->{
+            if(PlotManager.getInstance().checkChatTarget(action.get("condition").asText())) {
+                String text = action.get("text").asText();
+                Button button = new Button(text);
+                options.getChildren().add(button);
+
+                //选项触发对应剧情
+                button.setOnAction(event->{
+                    try {
+                        if(action.get("mainPlot").asBoolean()) {
+                            PlotManager.getInstance().setCurrentPlot(action.get("plot").asText());
+                            PlotManager.getInstance().play();
+                        }
+                        else{
+                        ArrayList<Dialogue> dialogues = JsonReader.getInstance().getChatConnect(action.get("plot").asText(),gameScenes);
+                        switchChatScene(dialogues);
+                        }
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+            }
+        });
 
         //神秘的bug消除方式
         SceneManager.getInstance().stage.setMaximized(false);
