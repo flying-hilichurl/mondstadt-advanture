@@ -15,8 +15,16 @@ public class Program extends Application {
                 throw new RuntimeException(ex);
             }
         });
+        MusicManager.getInstance().play();
         PreLoader.getInstance().preLoadImage(true);
     }
+
+    @Override
+    public void stop() throws Exception {
+        MusicManager.getInstance().stop();
+        super.stop();
+    }
+
 
     public static void main(String[] args) {
         launch();

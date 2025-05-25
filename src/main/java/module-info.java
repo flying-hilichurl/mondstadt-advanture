@@ -7,6 +7,7 @@ module hilichurl.mondstadtadvanture {
     requires com.almasb.fxgl.all;
     requires com.fasterxml.jackson.databind;
     requires java.desktop;
+    requires javafx.media;
 
     opens hilichurl.mondstadtadvanture to javafx.fxml;
     exports hilichurl.mondstadtadvanture;
