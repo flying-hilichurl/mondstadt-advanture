@@ -1,13 +1,20 @@
 package hilichurl.mondstadtadvanture.scenes;
 
+import hilichurl.mondstadtadvanture.MusicManager;
 import hilichurl.mondstadtadvanture.Program;
 import hilichurl.mondstadtadvanture.enums.GameScenes;
 import hilichurl.mondstadtadvanture.preload.PreLoader;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.Pane;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -22,10 +29,14 @@ public class GameSceneManager extends SceneManager{
     private final HashMap<GameScenes,Scene> sortedScene =new HashMap<>();   //已加载的场景索引
     private final HashMap<Scene,GameScenes> reserveSortedScene =new HashMap<>();    //场景索引的反转哈希表
     private final static GameSceneManager instance =new GameSceneManager();
+    private VBox menu;      //菜单
+    private Pane overlay;   //遮罩
     static Scene currentScene;
     static GameScenes currentGameScene;
 
     public HashMap<Scene,GameScenes> getReserveSortedScene(){return reserveSortedScene;}
+
+    public static GameSceneManager getInstance(){return instance;}
 
     //初始化的时候，将GameScenes和地址一一对应
     private GameSceneManager(){
@@ -42,8 +53,13 @@ public class GameSceneManager extends SceneManager{
     public void init(Stage stage) throws Exception {
         this.stage=stage;
 
+        //切换至第一个场景
         switchGameScene(GameScenes.MAIN_MENU);
         configStage(stage);
+
+        //创建菜单面板和遮罩层
+        menu=createMenu();
+        overlay=createOverlay();
     }
 
     //切换到对应的场景
@@ -66,11 +82,30 @@ public class GameSceneManager extends SceneManager{
             reserveSortedScene.put(scene,gameScene);
             stage.setScene(scene);
 
+            if(currentGameScene!=GameScenes.MAIN_MENU){
+                root.getChildren().add(overlay);
+                root.getChildren().add(menu);
+            }
+
             //获取加载好的背景图
             BackgroundImage backImage = PreLoader.getInstance().getSceneImages().get(gameScene);
             Background background = new Background(backImage);
             root.setBackground(background);
         }
+
+        currentScene.setOnKeyPressed(event->{
+            //如果按下Esc键，呼出菜单
+            if(event.getCode()== KeyCode.ESCAPE){
+                if(!menu.isVisible()){
+                    overlay.setVisible(true);
+                    menu.setVisible(true);
+                }
+                else {
+                    overlay.setVisible(false);
+                    menu.setVisible(false);
+                }
+            }
+        });
 
         //刷新
         refresh(GameSceneManager.getInstance().stage);
@@ -92,5 +127,54 @@ public class GameSceneManager extends SceneManager{
         stage.show();
     }
 
-    public static GameSceneManager getInstance(){return instance;}
+    //创建小菜单
+    private VBox createMenu(){
+        //音乐开关
+        CheckBox musicBox=new CheckBox("音乐");
+        musicBox.setSelected(true);
+        musicBox.selectedProperty().addListener((observable,oldValue,newValue)->{
+            if(newValue)
+                MusicManager.getInstance().continuePlay();
+            else
+                MusicManager.getInstance().pausePlay();
+        });
+
+        //音量条
+        Slider musicVolume=new Slider(0,100,50);
+        musicVolume.setMaxWidth(150);
+        musicVolume.valueProperty().addListener((obs,oldValue,newValue)->{
+            MusicManager.getInstance().setMusicVolume(newValue.floatValue()/100);
+        });
+
+        //退出按钮
+        Button exitButton=new Button("回到主菜单");
+        exitButton.setOnAction(event -> {
+            try {
+                switchGameScene(GameScenes.MAIN_MENU);
+                overlay.setVisible(false);
+                menu.setVisible(false);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        VBox menu=new VBox(20);
+        menu.setMaxWidth(400);
+        menu.setMaxHeight(300);
+        menu.setBackground(new Background(new BackgroundFill(Color.web("#FFF"), new CornerRadii(20), null)));
+        menu.setBorder(new Border(new BorderStroke(Color.web("#3498db"), BorderStrokeStyle.SOLID, new CornerRadii(20), new BorderWidths(2))));
+        menu.setPadding(new Insets(50,20,50,20));
+        menu.getChildren().addAll(musicBox,new Label("音量："),musicVolume,exitButton);
+        menu.setVisible(false);
+
+        return menu;
+    }
+
+    private Pane createOverlay(){
+        Pane overlay=new Pane();
+        overlay.setBackground(new Background(new BackgroundFill(new Color(0,0,0,0.4), null, null)));
+        overlay.setVisible(false);
+
+        return overlay;
+    }
 }

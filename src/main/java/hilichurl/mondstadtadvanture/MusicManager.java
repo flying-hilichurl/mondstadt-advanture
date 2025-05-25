@@ -27,4 +27,21 @@ public class MusicManager {
             mediaPlayer.dispose();
         }
     }
+
+    public void pausePlay(){
+        if(mediaPlayer.getStatus()== MediaPlayer.Status.PLAYING)
+            mediaPlayer.pause();
+    }
+
+    public void continuePlay(){
+        if(mediaPlayer.getStatus()==MediaPlayer.Status.PAUSED)
+            mediaPlayer.play();
+    }
+
+    public void setMusicVolume(float value){
+        if(value<=1&&value>=0)
+            mediaPlayer.setVolume(value);
+        else
+            System.out.println("音量越界");
+    }
 }

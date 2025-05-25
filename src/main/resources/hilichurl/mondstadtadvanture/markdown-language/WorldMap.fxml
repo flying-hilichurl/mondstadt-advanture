@@ -3,26 +3,29 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx"
+<StackPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="hilichurl.mondstadtadvanture.fxmlcontroller.WorldMapController"
             prefHeight="400.0" prefWidth="600.0"
             stylesheets="@WorldMap.css" styleClass="map">
 
-    <!--  顶部数据栏  -->
-    <top>
-        <HBox styleClass="header">
-            <Label text="顶部"/>
-        </HBox>
-    </top>
+    <BorderPane>
+        <!--  顶部数据栏  -->
+        <top>
+            <HBox styleClass="header">
+                <Label text="顶部"/>
+            </HBox>
+        </top>
 
-    <center>
-        <AnchorPane>
-            <Button text="冒险家协会" onAction="#onEnter" AnchorPane.leftAnchor="120" AnchorPane.topAnchor="550"/>
-            <Button text="喷泉广场" onAction="#onEnter" AnchorPane.leftAnchor="1000" AnchorPane.topAnchor="500"/>
-            <Button text="西风骑士团" onAction="#onEnter" AnchorPane.leftAnchor="220" AnchorPane.topAnchor="200"/>
-            <Button text="天使的馈赠" onAction="#onEnter" AnchorPane.leftAnchor="1160" AnchorPane.topAnchor="350"/>
-            <Button text="西风大教堂" onAction="#onEnter" AnchorPane.leftAnchor="420" AnchorPane.topAnchor="30"/>
-        </AnchorPane>
-    </center>
-</BorderPane>
+        <center>
+            <AnchorPane>
+                <Button text="冒险家协会" onAction="#onEnter" AnchorPane.leftAnchor="120" AnchorPane.topAnchor="550"/>
+                <Button text="喷泉广场" onAction="#onEnter" AnchorPane.leftAnchor="1000" AnchorPane.topAnchor="500"/>
+                <Button text="西风骑士团" onAction="#onEnter" AnchorPane.leftAnchor="220" AnchorPane.topAnchor="200"/>
+                <Button text="天使的馈赠" onAction="#onEnter" AnchorPane.leftAnchor="1160" AnchorPane.topAnchor="350"/>
+                <Button text="西风大教堂" onAction="#onEnter" AnchorPane.leftAnchor="420" AnchorPane.topAnchor="30"/>
+            </AnchorPane>
+        </center>
+    </BorderPane>
+
+</StackPane>

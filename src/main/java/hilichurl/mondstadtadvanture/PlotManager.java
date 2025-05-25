@@ -33,7 +33,7 @@ public class PlotManager {
     //检测此场景有无可触发剧情
     public void tryTargetPlot(Scene scene) throws Exception {
         HashMap<Scene,GameScenes> map = GameSceneManager.getInstance().getReserveSortedScene();
-        if(map.containsKey(scene)){
+        if(map.containsKey(scene)&&map.get(scene)!=GameScenes.MAIN_MENU){
             String nextPlot = JsonReader.getInstance().getPlotTarget(map.get(scene),currentPlot);
             if(nextPlot!=null){
                 currentPlot=nextPlot;

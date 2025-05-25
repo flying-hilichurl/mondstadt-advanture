@@ -6,19 +6,21 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx"
+<StackPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="hilichurl.mondstadtadvanture.fxmlcontroller.SpotController"
             stylesheets="@Spot.css">
-    <top>
-        <VBox styleClass="header">
-            <Label id="text" styleClass="topText" fx:id="description"/>
-        </VBox>
-    </top>
+    <BorderPane>
+        <top>
+            <VBox styleClass="header">
+                <Label id="text" styleClass="topText" fx:id="description"/>
+            </VBox>
+        </top>
 
-    <right>
-        <VBox fx:id="optionals" styleClass="optionals"
-        spacing="30">
-        </VBox>
-    </right>
-</BorderPane>
+        <right>
+            <VBox fx:id="optionals" styleClass="optionals"
+                  spacing="30">
+            </VBox>
+        </right>
+    </BorderPane>
+</StackPane>
