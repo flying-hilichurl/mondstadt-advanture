@@ -209,6 +209,7 @@ public class ChatSceneManager extends SceneManager{
             center = (VBox) root.lookup("#narrationField");
             bottom = (VBox) root.lookup("#dialogBox");
             options = (VBox) root.lookup("#options");
+            text.setWrapText(true);
 
             //获取加载好的背景图
             BackgroundImage backImage = PreLoader.getInstance().getSceneImages().get(GameSceneManager.currentGameScene);

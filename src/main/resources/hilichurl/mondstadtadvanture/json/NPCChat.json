@@ -13,13 +13,27 @@
         "plot": "k_01",
         "mainPlot": false
       }
+    ],
+    "唐娜": [
+      {
+        "condition": "",
+        "text": "询问感情问题",
+        "plot": "t_01",
+        "mainPlot": false
+      },
+      {
+        "condition": "",
+        "text": "离开",
+        "plot": "t_02",
+        "mainPlot": false
+      }
     ]
   },
   "ANGEL_BOUNTY": {
     "迪卢克": [
       {
         "condition": "",
-        "text": "你好！",
+        "text": "关于唐娜",
         "plot": "d_01",
         "mainPlot": false
       },

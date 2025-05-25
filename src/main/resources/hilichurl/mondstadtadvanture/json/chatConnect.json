@@ -9,6 +9,34 @@
         "text": "再见。",
         "next": -1
       }
+    ],
+    "t_01": [
+      {
+        "id": 0,
+        "type": "DIALOGUE",
+        "name": "派蒙",
+        "position": "LEFT",
+        "text": "哪个……唐娜，之前你那么喜欢迪卢克姥爷，真的会突然对他失去兴趣吗？",
+        "next": 1
+      },
+      {
+        "id": 1,
+        "type": "DIALOGUE",
+        "name": "唐娜",
+        "position": "RIGHT",
+        "text": "唔……其实……，不，没什么，我就是突然没感觉了。",
+        "next": -1
+      }
+    ],
+    "t_02": [
+      {
+        "id": 0,
+        "type": "DIALOGUE",
+        "name": "唐娜",
+        "position": "RIGHT",
+        "text": "啊……！再见，旅行者。再见，派蒙。",
+        "next": 1
+      }
     ]
   },
   "ANGEL_BOUNTY": {
@@ -16,9 +44,41 @@
       {
         "id": 0,
         "type": "DIALOGUE",
+        "name": "派蒙",
+        "position": "LEFT",
+        "text": "迪卢克姥爷，你知道唐娜吗？",
+        "next": 1
+      },
+      {
+        "id": 1,
+        "type": "DIALOGUE",
         "name": "迪卢克",
         "position": "RIGHT",
-        "text": "你好",
+        "text": "唐娜，那是谁？",
+        "next": 2
+      },
+      {
+        "id": 2,
+        "type": "DIALOGUE",
+        "name": "派蒙",
+        "position": "LEFT",
+        "text": "唔……唐娜真惨。",
+        "next": 3
+      },
+      {
+        "id": 3,
+        "type": "DIALOGUE",
+        "name": "旅行者",
+        "position": "LEFT",
+        "text": "唐娜一直是你的仰慕者，最近表现得有点异常，想从你这边看看有没有线索。",
+        "next": 4
+      },
+      {
+        "id": 4,
+        "type": "DIALOGUE",
+        "name": "迪卢克",
+        "position": "RIGHT",
+        "text": "抱歉，要让你们失望了，我从不关心这种无聊的事情。",
         "next": -1
       }
     ],

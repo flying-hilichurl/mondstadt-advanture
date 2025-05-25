@@ -41,7 +41,7 @@ public class PreLoader{
         scenes.add(GameScenes.ADVENTURE_GUIDE);
         imagePaths.put(GameScenes.ADVENTURE_GUIDE,"images/adventureGuide.png");
         scenes.add(GameScenes.SQUARE);
-        imagePaths.put(GameScenes.SQUARE,"images/square.jpg");
+        imagePaths.put(GameScenes.SQUARE,"images/square.png");
         scenes.add(GameScenes.ANGEL_BOUNTY);
         imagePaths.put(GameScenes.ANGEL_BOUNTY,"images/angelBounty.png");
     }

@@ -364,7 +364,159 @@
         "name": "旅行者",
         "position": "LEFT",
         "text": "奇怪……",
-        "next": -1
+        "next": 40
+      },
+      {
+        "id": 40,
+        "type": "DIALOGUE",
+        "name": "麦尔斯",
+        "position": "RIGHT",
+        "text": "啊！抱歉，现在是风花节期间，我会自己想办法的。那么，二位，我还要巡逻，回见。",
+        "next": 41
+      },
+      {
+        "id": 41,
+        "type": "DIALOGUE",
+        "name": "唐娜",
+        "position": "RIGHT",
+        "text": "……呼。",
+        "next":42
+      },
+      {
+        "id": 42,
+        "type": "DIALOGUE",
+        "name": "凯瑟琳",
+        "position": "LEFT",
+        "text": "唐娜小姐她最近似乎也……",
+        "next":43
+      },
+      {
+        "id": 43,
+        "type": "DIALOGUE",
+        "name": "唐娜",
+        "position": "RIGHT",
+        "text": "唉，哪里才有有趣的男人……",
+        "next":44
+      },
+      {
+        "id": 44,
+        "type": "DIALOGUE",
+        "name": "派蒙",
+        "position": "LEFT",
+        "text": "唔？没记错的话，唐娜不是钟情于迪卢克姥爷吗？",
+        "next":45
+      },
+      {
+        "id": 45,
+        "type": "DIALOGUE",
+        "name": "凯瑟琳",
+        "position": "LEFT",
+        "text": "这个问题我也思考过，她的想法好像变了。",
+        "next":46
+      },
+      {
+        "id": 46,
+        "type": "DIALOGUE",
+        "name": "唐娜",
+        "position": "RIGHT",
+        "text": "嗯？是骑兵队长凯亚先生？",
+        "next":47
+      },
+      {
+        "id": 47,
+        "type": "DIALOGUE",
+        "name": "唐娜",
+        "position": "RIGHT",
+        "text": "奇怪……这么一看，凯亚先生才比较符合我的审美，我以前这么会对他完全没有感觉呢？",
+        "next":48
+      },
+      {
+        "id": 48,
+        "type": "DIALOGUE",
+        "name": "凯亚",
+        "position": "LEFT",
+        "text": "能听见您说这种话我当然高兴了，唐娜小姐，但首先，我能听见您说的话，是否就是一种问题呢。",
+        "next":49
+      },
+      {
+        "id": 49,
+        "type": "DIALOGUE",
+        "name": "唐娜",
+        "position": "RIGHT",
+        "text": "噢，我的天哪，瞧我在说什么……抱歉，凯亚先生，请您忘了我说的话吧！呃……祝您风花节快乐。",
+        "next":50
+      },
+      {
+        "id": 51,
+        "type": "DIALOGUE",
+        "name": "凯亚",
+        "position": "LEFT",
+        "text": "当然好，我亲爱的小姐。不过，能问问您为什么突然对迪卢克老爷毫无兴趣了？据我所知……",
+        "next":52
+      },
+      {
+        "id": 52,
+        "type": "DIALOGUE",
+        "name": "唐娜",
+        "position": "RIGHT",
+        "text": "您居然也知道这些……其实，迪卢克老爷最近来过蒙德城，可我看到他，心中完全没有以前那样的澎湃。那种感觉，像跟一个自己不爱的男人结了婚，好些年之后突然觉得后悔一样。只是个比方，不好意思。",
+        "next":53
+      },
+      {
+        "id": 53,
+        "type": "DIALOGUE",
+        "name": "凯亚",
+        "position": "LEFT",
+        "text": "明白了，那很高兴能为您带去一点澎湃，可惜我还有要事在身，先告辞了。",
+        "next":54
+      },
+      {
+        "id": 54,
+        "type": "DIALOGUE",
+        "name": "派蒙",
+        "position": "LEFT",
+        "text": "朝我们走过来了呢，嘿嘿，肯定很早就注意到我们在这边了吧。",
+        "next":55
+      },
+      {
+        "id": 56,
+        "type": "DIALOGUE",
+        "name": "凯亚",
+        "position": "RIGHT",
+        "text": "怎么能说注意？我就是来找你们的。最近如何？",
+        "next":57
+      },
+      {
+        "id": 57,
+        "type": "DIALOGUE",
+        "name": "旅行者",
+        "position": "LEFT",
+        "text": "还不错，凯亚和骑士团的各位呢？",
+        "next":58
+      },
+      {
+        "id": 58,
+        "type": "DIALOGUE",
+        "name": "凯亚",
+        "position": "RIGHT",
+        "text": "关于这一点，我想借一步说话。凯瑟琳小姐，您不介意吧？",
+        "next":59
+      },
+      {
+        "id": 59,
+        "type": "DIALOGUE",
+        "name": "凯瑟琳",
+        "position": "LEFT",
+        "text": "没问题，几位聊得开心。",
+        "next":60
+      },
+      {
+        "id": 60,
+        "type": "DIALOGUE",
+        "name": "凯亚",
+        "position": "RIGHT",
+        "text": "刚才听说你们回蒙德了，琴团长特意让我来接你们。具体的就到办公室说吧。",
+        "next":-1
       }
     ],
     "group": ""
