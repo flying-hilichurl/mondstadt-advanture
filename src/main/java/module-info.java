@@ -8,6 +8,8 @@ module hilichurl.mondstadtadvanture {
     requires com.fasterxml.jackson.databind;
     requires java.desktop;
     requires javafx.media;
+    requires jdk.compiler;
+    requires annotations;
 
     opens hilichurl.mondstadtadvanture to javafx.fxml;
     exports hilichurl.mondstadtadvanture;

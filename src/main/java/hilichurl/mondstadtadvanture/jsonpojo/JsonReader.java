@@ -1,5 +1,6 @@
 package hilichurl.mondstadtadvanture.jsonpojo;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -81,5 +82,12 @@ public class JsonReader {
         JsonNode node = sceneNode.get(connect);
 
         return mapper.convertValue(node, new TypeReference<ArrayList<Dialogue>>(){});
+    }
+
+    public JsonNode readPlayerData() throws IOException {
+        File file=new File(Objects.requireNonNull(Program.class.getResource("json/playerData.json")).getPath());
+        JsonNode root=mapper.readTree(file);
+
+        return root;
     }
 }

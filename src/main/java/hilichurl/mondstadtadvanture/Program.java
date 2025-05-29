@@ -1,5 +1,6 @@
 package hilichurl.mondstadtadvanture;
 
+import hilichurl.mondstadtadvanture.enums.GameScenes;
 import hilichurl.mondstadtadvanture.preload.PreLoader;
 import hilichurl.mondstadtadvanture.scenes.GameSceneManager;
 import javafx.application.Application;
@@ -16,7 +17,7 @@ public class Program extends Application {
             }
         });
         MusicManager.getInstance().play();
-        PreLoader.getInstance().preLoadImage(true);
+        PreLoader.getInstance().preLoadOneImage(GameScenes.MAIN_MENU);
     }
 
     @Override

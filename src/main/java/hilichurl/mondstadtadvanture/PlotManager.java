@@ -15,6 +15,9 @@ public class PlotManager {
     private String currentPlot;
     private String currentGroup;
 
+    public void setCurrentPlot(String plot){currentPlot=plot;}
+    public void setCurrentGroup(String group){currentGroup=group;}
+
     public static PlotManager getInstance(){return instance;}
 
     private PlotManager(){}
@@ -53,5 +56,5 @@ public class PlotManager {
             return false;
     }
 
-    public void setCurrentPlot(String plot){currentPlot=plot;}
+
 }

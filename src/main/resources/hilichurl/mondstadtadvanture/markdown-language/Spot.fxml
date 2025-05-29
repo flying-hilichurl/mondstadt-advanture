@@ -8,7 +8,6 @@
 
 <StackPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="hilichurl.mondstadtadvanture.fxmlcontroller.SpotController"
             stylesheets="@Spot.css">
     <BorderPane>
         <top>

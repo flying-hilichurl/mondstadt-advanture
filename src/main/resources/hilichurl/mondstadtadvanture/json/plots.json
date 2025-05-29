@@ -479,39 +479,39 @@
         "next":55
       },
       {
-        "id": 56,
+        "id": 55,
         "type": "DIALOGUE",
         "name": "凯亚",
         "position": "RIGHT",
         "text": "怎么能说注意？我就是来找你们的。最近如何？",
+        "next":56
+      },
+      {
+        "id": 56,
+        "type": "DIALOGUE",
+        "name": "旅行者",
+        "position": "LEFT",
+        "text": "还不错，凯亚和骑士团的各位呢？",
         "next":57
       },
       {
         "id": 57,
         "type": "DIALOGUE",
-        "name": "旅行者",
-        "position": "LEFT",
-        "text": "还不错，凯亚和骑士团的各位呢？",
+        "name": "凯亚",
+        "position": "RIGHT",
+        "text": "关于这一点，我想借一步说话。凯瑟琳小姐，您不介意吧？",
         "next":58
       },
       {
         "id": 58,
         "type": "DIALOGUE",
-        "name": "凯亚",
-        "position": "RIGHT",
-        "text": "关于这一点，我想借一步说话。凯瑟琳小姐，您不介意吧？",
+        "name": "凯瑟琳",
+        "position": "LEFT",
+        "text": "没问题，几位聊得开心。",
         "next":59
       },
       {
         "id": 59,
-        "type": "DIALOGUE",
-        "name": "凯瑟琳",
-        "position": "LEFT",
-        "text": "没问题，几位聊得开心。",
-        "next":60
-      },
-      {
-        "id": 60,
         "type": "DIALOGUE",
         "name": "凯亚",
         "position": "RIGHT",
